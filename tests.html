@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bilan & Tests — PORNIC·PERFORMANCE LAB</title>
+  <meta name="description" content="Protocoles d'évaluation complets : force, endurance, vitesse, mobilité, composition corporelle, profil mental. Onboarding scientifique avant chaque accompagnement." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <style>
+    :root {
+      --rouge: #B85C38;
+      --rouge-light: rgba(184,92,56,0.12);
+      --rouge-mid: rgba(184,92,56,0.25);
+      --noir: #0c0c0c;
+      --noir-soft: #161616;
+      --blanc: #f5f2ed;
+      --gris: #888;
+      --gris-light: #444;
+      --border: rgba(255,255,255,0.08);
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'DM Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); background: var(--noir); color: var(--blanc); overflow-x: hidden; }
+
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+      background: rgba(12,12,12,0.85); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blanc); text-decoration: none; }
+    .nav-logo span { color: var(--rouge); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { font-size: 13px; color: var(--gris); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--blanc); }
+    .nav-cta { font-family: var(--font-sans); font-size: 13px; font-weight: 500; background: var(--rouge); color: #fff; border: none; padding: 9px 20px; border-radius: 6px; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 140px 48px 72px;
+      background: var(--noir-soft);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 50%; height: 100%;
+      background: radial-gradient(ellipse at 80% 40%, rgba(184,92,56,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--rouge); border: 1px solid rgba(184,92,56,0.35);
+      padding: 6px 14px; border-radius: 4px; margin-bottom: 24px;
+    }
+    .page-header h1 { font-family: var(--font-serif); font-size: clamp(36px, 5vw, 64px); font-weight: 400; line-height: 1.15; margin-bottom: 16px; }
+    .page-header h1 em { font-style: italic; color: var(--rouge); }
+    .page-header p { font-size: 16px; color: var(--gris); max-width: 520px; line-height: 1.75; }
+
+    .header-stats {
+      display: flex; gap: 0;
+      margin-top: 48px;
+      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+      max-width: 600px;
+    }
+    .hstat { flex: 1; padding: 20px 24px; border-right: 1px solid var(--border); }
+    .hstat:last-child { border-right: none; }
+    .hstat-num { font-family: var(--font-serif); font-size: 28px; color: var(--blanc); }
+    .hstat-label { font-size: 11px; color: var(--gris); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.07em; }
+
+    /* SECTIONS */
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 80px 48px; }
+    .s-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rouge); margin-bottom: 12px; }
+    .s-title { font-family: var(--font-serif); font-size: clamp(26px, 3vw, 40px); font-weight: 400; line-height: 1.2; margin-bottom: 10px; }
+    .s-sub { font-size: 15px; color: var(--gris); max-width: 500px; line-height: 1.75; margin-bottom: 40px; }
+
+    /* FILTER TABS */
+    .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+    .f-tab {
+      font-size: 12px; font-weight: 500; padding: 7px 16px;
+      border-radius: 6px; cursor: pointer;
+      border: 1px solid var(--border);
+      background: transparent; color: var(--gris);
+      transition: all 0.2s;
+    }
+    .f-tab:hover { border-color: rgba(255,255,255,0.2); color: var(--blanc); }
+    .f-tab.active { background: var(--rouge); color: #fff; border-color: var(--rouge); }
+
+    /* TESTS GRID */
+    .tests-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .test-card {
+      background: var(--noir-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 22px 24px;
+      transition: border-color 0.2s, background 0.2s;
+      display: none;
+    }
+    .test-card.visible { display: block; }
+    .test-card:hover { border-color: rgba(184,92,56,0.3); background: rgba(184,92,56,0.03); }
+
+    .test-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+    .test-name { font-size: 15px; font-weight: 500; }
+    .test-badge { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 4px; white-space: nowrap; }
+    .b-force  { background: rgba(184,92,56,0.14); color: #C96B44; }
+    .b-cardio { background: rgba(56,107,184,0.12); color: #4E8FD4; }
+    .b-neuro  { background: rgba(107,56,184,0.12); color: #8B6BD4; }
+    .b-compo  { background: rgba(56,160,107,0.12); color: #3DAB78; }
+    .b-mental { background: rgba(160,140,56,0.12); color: #B89F38; }
+
+    .test-desc { font-size: 13px; color: var(--gris); line-height: 1.65; margin-bottom: 14px; }
+    .test-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .pill {
+      font-size: 11px; color: var(--gris);
+      border: 1px solid var(--border);
+      padding: 3px 10px; border-radius: 20px;
+    }
+
+    /* PROFIL EXEMPLE */
+    .profil-section { background: var(--noir-soft); }
+
+    .profil-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 36px; align-items: start; }
+
+    /* Radar */
+    .radar-wrap {
+      background: var(--noir);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px;
+    }
+    .radar-title { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gris); margin-bottom: 20px; }
+
+    /* Barres + rapport */
+    .results-wrap { display: flex; flex-direction: column; gap: 20px; }
+    .bars-block {
+      background: var(--noir);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px;
+    }
+    .bars-title { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gris); margin-bottom: 20px; }
+    .bar-row { margin-bottom: 16px; }
+    .bar-row:last-child { margin-bottom: 0; }
+    .bar-meta { display: flex; justify-content: space-between; margin-bottom: 6px; }
+    .bar-name { font-size: 13px; font-weight: 500; }
+    .bar-score { font-size: 13px; color: var(--rouge); font-weight: 500; }
+    .bar-track { height: 5px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 3px; background: var(--rouge); width: 0; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+    .bar-comment { font-size: 11px; color: var(--gris); margin-top: 5px; }
+
+    .rapport-block {
+      background: var(--noir);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px;
+    }
+    .rapport-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+    .rapport-ttl { font-size: 14px; font-weight: 500; }
+    .rapport-date { font-size: 12px; color: var(--gris); }
+    .orient-item { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .orient-item:last-child { border-bottom: none; }
+    .orient-icon { color: var(--rouge); font-size: 15px; margin-top: 1px; flex-shrink: 0; }
+    .orient-text { font-size: 13px; color: var(--gris); line-height: 1.55; }
+    .orient-text strong { color: var(--blanc); font-weight: 500; }
+
+    /* CTA */
+    .cta-section { background: var(--rouge); padding: 80px 48px; text-align: center; }
+    .cta-section h2 { font-family: var(--font-serif); font-size: clamp(26px, 4vw, 48px); font-weight: 400; color: #fff; margin-bottom: 14px; }
+    .cta-section p { font-size: 16px; color: rgba(255,255,255,0.75); margin-bottom: 32px; }
+    .btn-white { font-family: var(--font-sans); font-size: 14px; font-weight: 500; background: #fff; color: var(--rouge); border: none; padding: 14px 32px; border-radius: 6px; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
+
+    footer { background: var(--noir); border-top: 1px solid var(--border); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-logo { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+    .footer-logo span { color: var(--rouge); }
+    footer p { font-size: 12px; color: var(--gris-light); }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-header { padding: 100px 20px 52px; }
+      .section-inner { padding: 56px 20px; }
+      .tests-grid { grid-template-columns: 1fr; }
+      .profil-layout { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">PORNIC<span>·</span>PERFORMANCE LAB</a>
+    <div class="nav-links">
+      <a href="index.html#methode">Méthode</a>
+      <a href="index.html#expertise">Expertise</a>
+      <a href="index.html#offres">Offres</a>
+      <a href="tests.html" class="active">Tests</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Bilan offert</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="tag">Onboarding · Phase 1</div>
+      <h1>Le bilan initial.<br><em>La base de tout.</em></h1>
+      <p>Avant une seule séance, on évalue. Ces tests couvrent l'ensemble des qualités physiques et permettent de construire une programmation sur des données réelles — pas des suppositions.</p>
+      <div class="header-stats">
+        <div class="hstat">
+          <div class="hstat-num">6</div>
+          <div class="hstat-label">Familles de tests</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">~90 min</div>
+          <div class="hstat-label">Durée du bilan</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">1 rapport</div>
+          <div class="hstat-label">Livré après chaque bilan</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TESTS -->
+  <section style="background: var(--noir);">
+    <div class="section-inner">
+      <p class="s-label reveal">Protocoles</p>
+      <h2 class="s-title reveal">Chaque test,<br>un rôle précis.</h2>
+      <p class="s-sub reveal">Les tests sont organisés par qualité physique. Filtre par catégorie pour explorer les protocoles.</p>
+
+      <div class="filter-tabs reveal">
+        <button class="f-tab active" onclick="filterTests('all', this)">Tous les tests</button>
+        <button class="f-tab" onclick="filterTests('force', this)">Force & Puissance</button>
+        <button class="f-tab" onclick="filterTests('cardio', this)">Endurance & Cardio</button>
+        <button class="f-tab" onclick="filterTests('neuro', this)">Vitesse & Agilité</button>
+        <button class="f-tab" onclick="filterTests('compo', this)">Composition & Mobilité</button>
+        <button class="f-tab" onclick="filterTests('mental', this)">Préparation mentale</button>
+      </div>
+
+      <div class="tests-grid" id="testsGrid">
+
+        <div class="test-card visible" data-cat="force">
+          <div class="test-top">
+            <span class="test-name">Back squat 1RM estimé</span>
+            <span class="test-badge b-force">Force</span>
+          </div>
+          <p class="test-desc">Évaluation de la force maximale des membres inférieurs via protocole sous-maximal (3–5 répétitions à charge connue). Pas de mise en danger, résultat fiable et reproductible.</p>
+          <div class="test-pills">
+            <span class="pill">Force max (kg)</span>
+            <span class="pill">Ratio poids de corps</span>
+            <span class="pill">Symétrie membres inf.</span>
+          </div>
+        </div>
+
+        <div class="test-card visible" data-cat="force">
+          <div class="test-top">
+            <span class="test-name">Développé couché 1RM estimé</span>
+            <span class="test-badge b-force">Force</span>
+          </div>
+          <p class="test-desc">Évaluation de la force des membres supérieurs et de la chaîne poussante. Protocole identique, basé sur la relation charge–répétition validée scientifiquement.</p>
+          <div class="test-pills">
+            <span class="pill">Force max (kg)</span>
+            <span class="pill">Ratio poids de corps</span>
+            <span class="pill">Déséquilibre push/pull</span>
+          </div>
+        </div>
+
+        <div class="test-card visible" data-cat="force">
+          <div class="test-top">
+            <span class="test-name">Countermovement Jump (CMJ)</span>
+            <span class="test-badge b-force">Puissance</span>
+          </div>
+          <p class="test-desc">Saut vertical avec contre-mouvement pour mesurer la puissance explosive et la qualité du cycle étirement-détente (SSC). Référence en préparation physique de haut niveau.</p>
+          <div class="test-pills">
+            <span class="pill">Hauteur de saut (cm)</span>
+            <span class="pill">Indice RSI</span>
+            <span class="pill">Puissance relative (W/kg)</span>
+          </div>
+        </div>
+
+        <div class="test-card visible" data-cat="cardio">
+          <div class="test-top">
+            <span class="test-name">Test aérobie progressif par paliers</span>
+            <span class="test-badge b-cardio">Endurance</span>
+          </div>
+          <p class="test-desc">Protocole par paliers progressifs (course ou vélo) pour déterminer les seuils ventilatoires S1 et S2. Permet de définir des zones d'entraînement individualisées et précises.</p>
+          <div class="test-pills">
+            <span class="pill">FC aux seuils</span>
+            <span class="pill">VMA ou PMA estimée</span>
+            <span class="pill">Zones d'effort perso.</span>
+          </div>
+        </div>
+
+        <div class="test-card visible" data-cat="cardio">
+          <div class="test-top">
+            <span class="test-name">Capacité aérobie locale</span>
+            <span class="test-badge b-cardio">Endurance musculaire</span>
+          </div>
+          <p class="test-desc">Épreuve de type temps limite à charge fixe pour évaluer la résistance à la fatigue musculaire locale et le système énergétique glycolytique.</p>
+          <div class="test-pills">
+            <span class="pill">Répétitions / temps tenu</span>
+            <span class="pill">FC de récupération</span>
+            <span class="pill">Profil fatigue</span>
+          </div>
+        </div>
+
+        <div class="test-card visible" data-cat="neuro">
+          <div class="test-top">
+            <span class="test-name">Sprint 10 / 30 mètres</span>
+            <span class="test-badge b-neuro">Vitesse</span>
+          </div>
+          <p class="test-desc">Mesure de la vitesse de démarrage (0–10m) et de la vitesse de pointe (10–30m). Différencie les profils "démarreurs" des profils "lancés" — clé pour les sports collectifs.</p>
+          <div class="test-pills">
+            <span class="pill">Temps 0–10m</span>
+            <span class="pill">Temps 10–30m</span>
+            <span class="pill">Vitesse max (km/h)</span>
+          </div>
+        </div>
+
+        <div class="test-card visible" data-cat="neuro">
+          <div class="test-top">
+            <span class="test-name">Test d'agilité 5-10-5 (Pro-Agility)</span>
+            <span class="test-badge b-neuro">Agilité</span>
+          </div>
+          <p class="test-desc">Protocole standard NFL Combine. Mesure la capacité à changer de direction rapidement, la coordination et la qualité des appuis. Référence en Football Américain et sports collectifs.</p>
+          <div class="test-pills">
+            <span class="pill">Temps total (sec)</span>
+            <span class="pill">Symétrie droite/gauche</span>
+            <span class="pill">Qualité des appuis</span>
+          </div>
+        </div>
+
+        <div class="test-card visible" data-cat="compo">
+          <div class="test-top">
+            <span class="test-name">Screening de mobilité articulaire</span>
+            <span class="test-badge b-compo">Mobilité</span>
+          </div>
+          <p class="test-desc">Évaluation des amplitudes de mouvement clés : hanche, épaule, cheville, thoracique. Identification des restrictions limitant la performance ou exposant aux blessures.</p>
+          <div class="test-pills">
+            <span class="pill">Score par articulation</span>
+            <span class="pill">Asymétries identifiées</span>
+            <span class="pill">Facteurs limitants</span>
+          </div>
+        </div>
+
+        <div class="test-card visible" data-cat="compo">
+          <div class="test-top">
+            <span class="test-name">Composition corporelle</span>
+            <span class="test-badge b-compo">Composition</span>
+          </div>
+          <p class="test-desc">Mesure des plis cutanés (méthode Jackson & Pollock) pour estimer la masse grasse, la masse maigre et le ratio puissance/poids. Données essentielles pour les objectifs de performance.</p>
+          <div class="test-pills">
+            <span class="pill">% masse grasse</span>
+            <span class="pill">Masse maigre estimée</span>
+            <span class="pill">Ratio puissance/poids</span>
+          </div>
+        </div>
+
+        <div class="test-card visible" data-cat="mental">
+          <div class="test-top">
+            <span class="test-name">Profil psychologique du sportif</span>
+            <span class="test-badge b-mental">Mental</span>
+          </div>
+          <p class="test-desc">Questionnaire validé (POMS/TOPS adapté) pour évaluer l'état psychologique : niveau de stress, confiance, motivation, concentration et gestion de la pression compétitive.</p>
+          <div class="test-pills">
+            <span class="pill">Profil de motivation</span>
+            <span class="pill">Anxiété compétitive</span>
+            <span class="pill">Score confiance en soi</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFIL EXEMPLE -->
+  <section class="profil-section">
+    <div class="section-inner">
+      <p class="s-label reveal">Exemple de résultats</p>
+      <h2 class="s-title reveal">À quoi ressemble<br>ton profil après les tests ?</h2>
+      <p class="s-sub reveal">Voici un exemple de rapport livré après le bilan. Les données orientent directement la programmation — les points forts sont consolidés, les lacunes deviennent des priorités.</p>
+
+      <div class="profil-layout">
+
+        <!-- Radar SVG -->
+        <div class="radar-wrap reveal">
+          <div class="radar-title">Profil athlétique — exemple fictif · Athlète sports collectifs, 28 ans</div>
+          <svg id="radarSvg" viewBox="0 0 320 300" width="100%" xmlns="http://www.w3.org/2000/svg">
+            <!-- Grilles fond -->
+            <g stroke="rgba(255,255,255,0.05)" stroke-width="1" fill="none">
+              <polygon points="160,50 222,73 222,167 160,190 98,167 98,73"/>
+              <polygon points="160,74 205,91 205,149 160,166 115,149 115,91"/>
+              <polygon points="160,98 188,109 188,131 160,142 132,131 132,109"/>
+              <polygon points="160,122 171,127 171,113 160,118 149,113 149,127"/>
+            </g>
+            <!-- Axes -->
+            <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
+              <line x1="160" y1="160" x2="160" y2="36"/>
+              <line x1="160" y1="160" x2="236" y2="58"/>
+              <line x1="160" y1="160" x2="236" y2="182"/>
+              <line x1="160" y1="160" x2="160" y2="204"/>
+              <line x1="160" y1="160" x2="84" y2="182"/>
+              <line x1="160" y1="160" x2="84" y2="58"/>
+            </g>
+            <!-- Polygone athlète (animé) : Force 85%, Endurance 45%, Vitesse 90%, Mobilité 60%, Mental 75%, Nutrition 70% -->
+            <!-- Force (top): 160, 160 - 0.85*124 = 54.6 → (160, 55) -->
+            <!-- Endurance (top-right): 160+0.45*76=194, 160+0.45*(58-160)=160-45.9=114 → (194,114) -->
+            <!-- Vitesse (bot-right): 160+0.9*76=228, 160+0.9*(182-160)=179.8 → (228,180) -->
+            <!-- Nutrition (bottom): 160, 160+0.70*44=190.8 → (160,191) -->
+            <!-- Mobilité (bot-left): 160-0.60*76=114, 160+0.60*(182-160)=173.2 → (114,173) -->
+            <!-- Mental (top-left): 160-0.75*76=103, 160+0.75*(58-160)=83.5 → (103,84) -->
+            <polygon id="radarPoly"
+              points="160,160 160,160 160,160 160,160 160,160 160,160"
+              fill="rgba(184,92,56,0.18)" stroke="#B85C38" stroke-width="1.5" stroke-linejoin="round"/>
+            <!-- Points -->
+            <circle class="r-dot" cx="160" cy="160" r="4" fill="#B85C38" opacity="0"/>
+            <circle class="r-dot" cx="160" cy="160" r="4" fill="#B85C38" opacity="0"/>
+            <circle class="r-dot" cx="160" cy="160" r="4" fill="#B85C38" opacity="0"/>
+            <circle class="r-dot" cx="160" cy="160" r="4" fill="#B85C38" opacity="0"/>
+            <circle class="r-dot" cx="160" cy="160" r="4" fill="#B85C38" opacity="0"/>
+            <circle class="r-dot" cx="160" cy="160" r="4" fill="#B85C38" opacity="0"/>
+            <!-- Labels -->
+            <text x="160" y="28" text-anchor="middle" font-size="11" fill="#B85C38" font-weight="500" font-family="DM Sans, sans-serif">Force</text>
+            <text x="244" y="56" text-anchor="start" font-size="11" fill="rgba(255,255,255,0.5)" font-family="DM Sans, sans-serif">Endurance</text>
+            <text x="244" y="188" text-anchor="start" font-size="11" fill="rgba(255,255,255,0.5)" font-family="DM Sans, sans-serif">Vitesse</text>
+            <text x="160" y="220" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.5)" font-family="DM Sans, sans-serif">Nutrition</text>
+            <text x="76" y="188" text-anchor="end" font-size="11" fill="rgba(255,255,255,0.5)" font-family="DM Sans, sans-serif">Mobilité</text>
+            <text x="76" y="56" text-anchor="end" font-size="11" fill="rgba(255,255,255,0.5)" font-family="DM Sans, sans-serif">Mental</text>
+          </svg>
+        </div>
+
+        <!-- Barres + rapport -->
+        <div class="results-wrap reveal">
+          <div class="bars-block">
+            <div class="bars-title">Scores par qualité physique</div>
+            <div class="bar-row">
+              <div class="bar-meta"><span class="bar-name">Force relative (squat)</span><span class="bar-score">1.8× poids corps</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="85"></div></div>
+              <div class="bar-comment">Point fort — au-dessus de la moyenne</div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-meta"><span class="bar-name">Endurance aérobie (VMA)</span><span class="bar-score">14.5 km/h</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="45"></div></div>
+              <div class="bar-comment">⚠ Lacune principale — priorité en programmation</div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-meta"><span class="bar-name">Vitesse (sprint 30m)</span><span class="bar-score">4.12 sec</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="90"></div></div>
+              <div class="bar-comment">Excellent — profil très explosif</div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-meta"><span class="bar-name">Mobilité hanche / cheville</span><span class="bar-score">14 / 21</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="60"></div></div>
+              <div class="bar-comment">Restriction cheville droite identifiée</div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-meta"><span class="bar-name">Profil mental (confiance)</span><span class="bar-score">74 / 100</span></div>
+              <div class="bar-track"><div class="bar-fill" data-width="74"></div></div>
+              <div class="bar-comment">Bon niveau — travail sur gestion pression</div>
+            </div>
+          </div>
+
+          <div class="rapport-block">
+            <div class="rapport-header">
+              <span class="rapport-ttl">Orientations de programmation</span>
+              <span class="rapport-date">Rapport · mai 2025</span>
+            </div>
+            <div class="orient-item">
+              <i class="ti ti-arrow-up-right orient-icon"></i>
+              <span class="orient-text"><strong>Développement aérobie Zone 2</strong> — 2 séances/sem minimum. Objectif : VMA +1.5 km/h en 12 semaines.</span>
+            </div>
+            <div class="orient-item">
+              <i class="ti ti-arrow-up-right orient-icon"></i>
+              <span class="orient-text"><strong>Mobilité cheville droite</strong> — protocole correctif intégré en échauffement. Restriction limitante pour le squat et les changements de direction.</span>
+            </div>
+            <div class="orient-item">
+              <i class="ti ti-minus orient-icon" style="color:#555"></i>
+              <span class="orient-text"><strong>Force membres inférieurs</strong> — maintien via 1 séance/sem. Pas de priorité de développement.</span>
+            </div>
+            <div class="orient-item">
+              <i class="ti ti-brain orient-icon"></i>
+              <span class="orient-text"><strong>Préparation mentale</strong> — routines pré-compétitives et travail sur le discours interne sous pression.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Découvre ton profil réel.</h2>
+    <p>Le bilan complet est la première étape de tout accompagnement.<br>Prendre rendez-vous, c'est déjà commencer à progresser.</p>
+    <a href="contact.html" class="btn-white">Réserver mon bilan offert →</a>
+  </section>
+
+  <footer>
+    <div class="footer-logo">PORNIC<span>·</span>PERFORMANCE LAB</div>
+    <p>Hybrid Training Pornic · Pornic, Loire-Atlantique</p>
+    <p>© 2025 — Tous droits réservés</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => revealObs.observe(el));
+
+    // Filter tests
+    function filterTests(cat, el) {
+      document.querySelectorAll('.f-tab').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      document.querySelectorAll('.test-card').forEach(card => {
+        card.classList.toggle('visible', cat === 'all' || card.dataset.cat === cat);
+      });
+    }
+
+    // Animate bars on scroll
+    const barObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.bar-fill').forEach(bar => {
+            bar.style.width = bar.dataset.width + '%';
+          });
+          barObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.bars-block').forEach(el => barObs.observe(el));
+
+    // Animate radar on scroll
+    const radarObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          setTimeout(() => {
+            document.getElementById('radarPoly').setAttribute('points',
+              '160,55 194,114 228,180 160,191 114,173 103,84');
+            document.querySelectorAll('.r-dot').forEach((dot, i) => {
+              const coords = [
+                [160,55],[194,114],[228,180],[160,191],[114,173],[103,84]
+              ];
+              dot.setAttribute('cx', coords[i][0]);
+              dot.setAttribute('cy', coords[i][1]);
+              dot.style.transition = `opacity 0.4s ease ${0.8 + i*0.1}s`;
+              dot.setAttribute('opacity', '1');
+            });
+          }, 300);
+          radarObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    const radarWrap = document.querySelector('.radar-wrap');
+    if (radarWrap) radarObs.observe(radarWrap);
+  </script>
+</body>
+</html>

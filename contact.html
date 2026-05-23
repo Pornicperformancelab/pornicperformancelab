@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Bilan offert — PORNIC·PERFORMANCE LAB</title>
+  <meta name="description" content="Réservez votre bilan physique offert. Coaching sportif haut de gamme à Pornic et à domicile." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <style>
+    :root {
+      --rouge: #B85C38;
+      --rouge-light: rgba(184,92,56,0.10);
+      --noir: #0c0c0c;
+      --noir-soft: #161616;
+      --blanc: #f5f2ed;
+      --gris: #888;
+      --gris-light: #444;
+      --border: rgba(255,255,255,0.08);
+      --border-focus: rgba(184,92,56,0.5);
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'DM Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); background: var(--noir); color: var(--blanc); overflow-x: hidden; }
+
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+      background: rgba(12,12,12,0.85); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blanc); text-decoration: none; }
+    .nav-logo span { color: var(--rouge); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { font-size: 13px; color: var(--gris); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--blanc); }
+    .nav-cta { font-family: var(--font-sans); font-size: 13px; font-weight: 500; background: var(--rouge); color: #fff; border: none; padding: 9px 20px; border-radius: 6px; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* LAYOUT PRINCIPAL */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      min-height: 100vh;
+      padding-top: 64px;
+    }
+
+    /* PANNEAU GAUCHE */
+    .left-panel {
+      padding: 72px 56px;
+      background: var(--noir-soft);
+      border-right: 1px solid var(--border);
+      position: sticky; top: 64px;
+      height: calc(100vh - 64px);
+      overflow-y: auto;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .left-top {}
+    .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rouge); border: 1px solid rgba(184,92,56,0.35); padding: 6px 14px; border-radius: 4px; margin-bottom: 28px; }
+    .left-panel h1 { font-family: var(--font-serif); font-size: clamp(30px, 3vw, 48px); font-weight: 400; line-height: 1.2; margin-bottom: 16px; }
+    .left-panel h1 em { font-style: italic; color: var(--rouge); }
+    .left-panel > .left-top > p { font-size: 15px; color: var(--gris); line-height: 1.75; margin-bottom: 40px; max-width: 360px; }
+
+    /* Inclus dans le bilan */
+    .bilan-inclus { margin-bottom: 40px; }
+    .bilan-title { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gris); margin-bottom: 14px; }
+    .bilan-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .bilan-item:last-child { border-bottom: none; }
+    .bilan-item i { color: var(--rouge); font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+    .bilan-item span { font-size: 13px; color: #bbb; line-height: 1.5; }
+    .bilan-item span strong { color: var(--blanc); font-weight: 500; }
+
+    /* Infos pratiques */
+    .infos { display: flex; flex-direction: column; gap: 12px; }
+    .info-item { display: flex; gap: 12px; align-items: flex-start; }
+    .info-item i { color: var(--rouge); font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+    .info-item p { font-size: 13px; color: var(--gris); line-height: 1.6; }
+    .info-item p strong { color: var(--blanc); display: block; font-weight: 500; font-size: 13px; }
+
+    /* PANNEAU DROIT — FORMULAIRE */
+    .right-panel { padding: 72px 56px; background: var(--noir); }
+    .form-header { margin-bottom: 40px; }
+    .form-header h2 { font-family: var(--font-serif); font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; margin-bottom: 8px; }
+    .form-header p { font-size: 14px; color: var(--gris); }
+
+    .form { display: flex; flex-direction: column; gap: 20px; max-width: 560px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .field { display: flex; flex-direction: column; gap: 8px; }
+    .field label { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gris); }
+    .field input,
+    .field select,
+    .field textarea {
+      font-family: var(--font-sans);
+      font-size: 14px; color: var(--blanc);
+      background: var(--noir-soft);
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      width: 100%;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder { color: #444; }
+    .field select option { background: #1a1a1a; }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--border-focus);
+      background: rgba(184,92,56,0.04);
+    }
+    .field textarea { resize: vertical; min-height: 110px; line-height: 1.65; }
+
+    /* Chips objectifs */
+    .chips-label { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gris); margin-bottom: 10px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      font-size: 13px; padding: 7px 14px;
+      border-radius: 20px; border: 1px solid var(--border);
+      background: transparent; color: var(--gris);
+      cursor: pointer; transition: all 0.2s; user-select: none;
+    }
+    .chip:hover { border-color: rgba(255,255,255,0.25); color: var(--blanc); }
+    .chip.selected { background: var(--rouge-light); border-color: rgba(184,92,56,0.45); color: var(--blanc); }
+
+    /* Disponibilités */
+    .dispo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .dispo-chip {
+      font-size: 12px; padding: 8px 12px; text-align: center;
+      border-radius: 6px; border: 1px solid var(--border);
+      background: transparent; color: var(--gris);
+      cursor: pointer; transition: all 0.2s; user-select: none;
+    }
+    .dispo-chip:hover { border-color: rgba(255,255,255,0.2); color: var(--blanc); }
+    .dispo-chip.selected { background: var(--rouge-light); border-color: rgba(184,92,56,0.45); color: var(--blanc); }
+
+    /* Submit */
+    .submit-row { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+    .btn-submit {
+      font-family: var(--font-sans);
+      font-size: 15px; font-weight: 500;
+      background: var(--rouge); color: #fff;
+      border: none; padding: 15px 32px;
+      border-radius: 8px; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(184,92,56,0.35); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-note { font-size: 12px; color: var(--gris); text-align: center; }
+
+    /* Confirmation */
+    .confirmation {
+      display: none;
+      flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 60px 40px;
+      gap: 16px;
+    }
+    .confirmation.show { display: flex; }
+    .confirm-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--rouge-light); border: 1px solid rgba(184,92,56,0.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--rouge); font-size: 28px;
+    }
+    .confirmation h3 { font-family: var(--font-serif); font-size: 28px; font-weight: 400; }
+    .confirmation p { font-size: 15px; color: var(--gris); max-width: 360px; line-height: 1.7; }
+    .btn-ghost { font-family: var(--font-sans); font-size: 14px; background: transparent; color: var(--blanc); border: 1px solid var(--border); padding: 12px 24px; border-radius: 6px; cursor: pointer; margin-top: 8px; text-decoration: none; display: inline-block; transition: border-color 0.2s; }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.3); }
+
+    footer { background: var(--noir); border-top: 1px solid var(--border); padding: 28px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-logo { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+    .footer-logo span { color: var(--rouge); }
+    footer p { font-size: 12px; color: var(--gris-light); }
+
+    @media (max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .left-panel { position: static; height: auto; padding: 40px 24px; }
+      .right-panel { padding: 40px 24px; }
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .dispo-grid { grid-template-columns: repeat(2, 1fr); }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">PORNIC<span>·</span>PERFORMANCE LAB</a>
+    <div class="nav-links">
+      <a href="methode.html">Méthode</a>
+      <a href="index.html#expertise">Expertise</a>
+      <a href="index.html#offres">Offres</a>
+      <a href="tests.html">Tests</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Bilan offert</a>
+  </nav>
+
+  <div class="contact-layout">
+
+    <!-- PANNEAU GAUCHE -->
+    <div class="left-panel">
+      <div class="left-top">
+        <div class="tag">Bilan offert</div>
+        <h1>On commence<br>par <em>se connaître.</em></h1>
+        <p>Avant de programmer quoi que ce soit, on évalue ton niveau réel. Ce bilan est offert, sans engagement — c'est simplement la seule façon sérieuse de commencer.</p>
+
+        <div class="bilan-inclus">
+          <div class="bilan-title">Ce qui est inclus dans le bilan offert</div>
+          <div class="bilan-item"><i class="ti ti-check"></i><span><strong>Tests sur toutes les qualités physiques</strong> — force, endurance, vitesse, mobilité, composition</span></div>
+          <div class="bilan-item"><i class="ti ti-check"></i><span><strong>Profil mental</strong> — questionnaire motivation, stress, confiance en soi</span></div>
+          <div class="bilan-item"><i class="ti ti-check"></i><span><strong>Rapport personnalisé</strong> — radar de performance + orientations de programmation</span></div>
+          <div class="bilan-item"><i class="ti ti-check"></i><span><strong>Durée ~90 minutes</strong> — prise en charge complète dès l'arrivée</span></div>
+        </div>
+      </div>
+
+      <div class="infos">
+        <div class="info-item">
+          <i class="ti ti-map-pin"></i>
+          <p><strong>Hybrid Training Pornic</strong>Pornic, Loire-Atlantique<br>Ou à domicile si matériel adapté présent</p>
+        </div>
+        <div class="info-item">
+          <i class="ti ti-mail"></i>
+          <p><strong>Email</strong>contact@pornicperformancelab.fr</p>
+        </div>
+        <div class="info-item">
+          <i class="ti ti-clock"></i>
+          <p><strong>Réponse sous 24h</strong>Du lundi au samedi</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANNEAU DROIT -->
+    <div class="right-panel">
+
+      <div id="formWrap">
+        <div class="form-header">
+          <h2>Réserver mon bilan offert</h2>
+          <p>Remplis ce formulaire — je te recontacte sous 24h pour confirmer le créneau.</p>
+        </div>
+
+        <form class="form" id="contactForm" onsubmit="handleSubmit(event)">
+
+          <div class="form-row">
+            <div class="field">
+              <label for="prenom">Prénom</label>
+              <input type="text" id="prenom" name="prenom" placeholder="Thomas" required />
+            </div>
+            <div class="field">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" name="nom" placeholder="Dupont" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="thomas@email.com" required />
+            </div>
+            <div class="field">
+              <label for="tel">Téléphone</label>
+              <input type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="age">Âge &amp; niveau sportif actuel</label>
+            <select id="age" name="niveau">
+              <option value="" disabled selected>Sélectionne ton profil</option>
+              <option>Débutant — je reprends le sport</option>
+              <option>Intermédiaire — je m'entraîne régulièrement</option>
+              <option>Confirmé — je cherche à progresser sérieusement</option>
+              <option>Compétiteur — préparation à une compétition</option>
+              <option>Retour blessure — réathlétisation</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <div class="chips-label">Objectifs principaux (plusieurs choix possibles)</div>
+            <div class="chips">
+              <div class="chip" onclick="toggleChip(this)">Prise de force</div>
+              <div class="chip" onclick="toggleChip(this)">Perte de poids</div>
+              <div class="chip" onclick="toggleChip(this)">Performance sportive</div>
+              <div class="chip" onclick="toggleChip(this)">Endurance</div>
+              <div class="chip" onclick="toggleChip(this)">Composition corporelle</div>
+              <div class="chip" onclick="toggleChip(this)">Retour après blessure</div>
+              <div class="chip" onclick="toggleChip(this)">Préparation compétition</div>
+              <div class="chip" onclick="toggleChip(this)">Bien-être général</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="chips-label">Disponibilités préférées</div>
+            <div class="dispo-grid">
+              <div class="dispo-chip" onclick="toggleChip(this)">Lun matin</div>
+              <div class="dispo-chip" onclick="toggleChip(this)">Lun après-midi</div>
+              <div class="dispo-chip" onclick="toggleChip(this)">Lun soir</div>
+              <div class="dispo-chip" onclick="toggleChip(this)">Mar matin</div>
+              <div class="dispo-chip" onclick="toggleChip(this)">Mar après-midi</div>
+              <div class="dispo-chip" onclick="toggleChip(this)">Mar soir</div>
+              <div class="dispo-chip" onclick="toggleChip(this)">Mer matin</div>
+              <div class="dispo-chip" onclick="toggleChip(this)">Mer après-midi</div>
+              <div class="dispo-chip" onclick="toggleChip(this)">Mer soir</div>
+              <div class="dispo-chip" onclick="toggleChip(this)">Jeu matin</div>
+              <div class="dispo-chip" onclick="toggleChip(this)">Jeu après-midi</div>
+              <div class="dispo-chip" onclick="toggleChip(this)">Jeu soir</div>
+              <div class="dispo-chip" onclick="toggleChip(this)">Ven matin</div>
+              <div class="dispo-chip" onclick="toggleChip(this)">Ven après-midi</div>
+              <div class="dispo-chip" onclick="toggleChip(this)">Sam matin</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Message (optionnel)</label>
+            <textarea id="message" name="message" placeholder="Contexte, blessures passées, sport pratiqué, questions…"></textarea>
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" class="btn-submit" id="submitBtn">
+              <i class="ti ti-send"></i>
+              Envoyer ma demande de bilan
+            </button>
+            <p class="form-note">Bilan 100% offert · Sans engagement · Réponse sous 24h</p>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- CONFIRMATION -->
+      <div class="confirmation" id="confirmation">
+        <div class="confirm-icon"><i class="ti ti-check"></i></div>
+        <h3>Demande envoyée !</h3>
+        <p>Je te recontacte sous 24h pour confirmer le créneau de ton bilan. À très bientôt.</p>
+        <a href="index.html" class="btn-ghost">Retour à l'accueil</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo">PORNIC<span>·</span>PERFORMANCE LAB</div>
+    <p>Hybrid Training Pornic · Pornic, Loire-Atlantique</p>
+    <p>© 2025 — Tous droits réservés</p>
+  </footer>
+
+  <script>
+    function toggleChip(el) {
+      el.classList.toggle('selected');
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<i class="ti ti-loader-2" style="animation:spin 0.8s linear infinite"></i> Envoi en cours…';
+
+      // Simulation envoi (remplacer par fetch vers ton backend ou Formspree)
+      setTimeout(() => {
+        document.getElementById('formWrap').style.display = 'none';
+        document.getElementById('confirmation').classList.add('show');
+      }, 1400);
+    }
+  </script>
+
+  <style>
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  </style>
+
+</body>
+</html>
