@@ -482,22 +482,26 @@
     .lien-exemple:hover { color: var(--blanc); }
     .coach { background: var(--noir); }
     .coach-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; }
-    .coach-photo { position: relative; }
-    .coach-photo::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 45% 45%, rgba(184,92,56,0.16), transparent 70%); }
-    .coach-photo img { position: relative; width: 100%; max-width: 460px; height: auto; display: block; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 14%), linear-gradient(to top, transparent 0, #000 12%); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent 0, #000 14%), linear-gradient(to top, transparent 0, #000 12%); mask-composite: intersect; }
+    .coach-photo { position: relative; aspect-ratio: 4 / 5; max-width: 460px; width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: radial-gradient(ellipse 75% 60% at 55% 40%, rgba(184,92,56,0.28), transparent 70%), linear-gradient(160deg, #1c1714 0%, #0f0f0f 100%); }
+    .coach-photo::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
+    .coach-photo img { position: absolute; left: 0; bottom: -6.4%; height: 97%; width: auto; max-width: none; z-index: 1; }
     .coach-lead { font-family: var(--font-serif); font-size: clamp(20px, 2.2vw, 26px); line-height: 1.4; color: var(--blanc); margin: 8px 0 18px; }
     .coach-p { font-size: 15px; color: var(--gris); line-height: 1.8; margin-bottom: 14px; max-width: 560px; }
-    .presse { margin-top: 28px; display: grid; gap: 10px; }
-    .presse-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gris); }
-    .presse-card { display: flex; flex-direction: column; gap: 6px; border: 1px solid var(--border); border-left: 2px solid var(--rouge); border-radius: 8px; padding: 14px 18px; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
-    a.presse-card:hover { background: var(--rouge-light); border-color: rgba(184,92,56,0.4); }
-    .presse-source { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rouge); }
-    .presse-titre { font-family: var(--font-serif); font-size: 18px; line-height: 1.35; color: var(--blanc); }
+    .presse-section { background: var(--noir-soft); overflow: hidden; }
+    .presse-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; align-items: center; padding: 8px 0 12px; }
+    .coupure { margin: 0; }
+    .coupure img { display: block; width: 100%; height: auto; border-radius: 3px; box-shadow: 0 24px 50px rgba(0,0,0,0.55), 0 2px 6px rgba(0,0,0,0.4); transition: transform 0.3s; }
+    .coupure-a img { transform: rotate(-1.2deg); }
+    .coupure-b img { transform: rotate(1.4deg); }
+    .coupure a:hover img { transform: rotate(0deg) scale(1.02); }
+    .coupure figcaption { margin-top: 18px; font-size: 12px; color: var(--gris); letter-spacing: 0.03em; }
+    .coupure figcaption a { color: var(--rouge); text-decoration: none; }
     @media (max-width: 1100px) { .hero-photo { height: min(70vh, 640px); right: 0; opacity: 0.35 !important; animation: none; } }
     @media (max-width: 900px) {
       .hero-photo { display: none; }
       .coach-grid { grid-template-columns: 1fr; gap: 24px; }
-      .coach-photo img { max-width: 300px; margin: 0 auto; }
+      .presse-grid { grid-template-columns: 1fr; gap: 32px; }
+      .coach-photo { max-width: 340px; margin: 0 auto; }
     }
     /* ── RESPONSIVE ── */
     @media (max-width: 1000px) and (min-width: 769px) {
@@ -660,17 +664,25 @@
         <p class="coach-lead reveal">Avant d'entraîner les autres, j'ai passé des années à chercher mes propres limites.</p>
         <p class="coach-p reveal">Football américain au Pôle France d'Amiens puis avec les London Blitz, bobsleigh en Coupe d'Europe comme pousseur avec une équipe française qui visait les JO de Pékin 2022, puis quatre ans à la tête de CrossFit Pornic : l'exigence du haut niveau, je l'ai vécue de l'intérieur.</p>
         <p class="coach-p reveal">Aujourd'hui, je mets cette expérience et ma formation universitaire (STAPS et 4 diplômes universitaires) au service des sportifs de tous niveaux, à Pornic Hybrid Training. Ma règle est simple : rien n'est programmé sans avoir été mesuré.</p>
-        <div class="presse reveal">
-          <div class="presse-label">Dans la presse</div>
-          <a class="presse-card" href="https://www.francebleu.fr/infos/insolite/apres-rasta-rockett-pornic-rockett-romain-qualifie-pour-la-coupe-d-europe-de-bobsleigh-1635520520" target="_blank" rel="noopener">
-            <span class="presse-source">France Bleu Loire Océan · novembre 2021 <i class="ti ti-external-link"></i></span>
-            <span class="presse-titre">« Après Rasta Rockett, Pornic Rockett : Romain, qualifié pour la coupe d'Europe de bobsleigh »</span>
-          </a>
-          <div class="presse-card">
-            <span class="presse-source">Presse régionale · Pays de Retz · décembre 2021</span>
-            <span class="presse-titre">« Un Pornicais vise les JO 2022 en bobsleigh »</span>
-          </div>
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRESSE ── -->
+  <section class="presse-section" id="presse">
+    <div class="section-inner">
+      <p class="s-label reveal">Dans la presse</p>
+      <h2 class="s-title reveal">Un Pornicais sur la glace.</h2>
+      <p class="s-sub reveal">De la piste d'athlétisme du Val-Saint-Martin à la Coupe d'Europe de bobsleigh : un parcours suivi par les médias locaux en 2021.</p>
+      <div class="presse-grid reveal">
+        <figure class="coupure coupure-a">
+          <a href="images/presse-pays-de-retz.webp" target="_blank" rel="noopener"><img src="images/presse-pays-de-retz.webp" alt="Article de presse régionale, page Pays de Retz : Un Pornicais vise les JO 2022 en bobsleigh" width="1100" height="746" loading="lazy"></a>
+          <figcaption>Presse régionale · page Pays de Retz · décembre 2021</figcaption>
+        </figure>
+        <figure class="coupure coupure-b">
+          <a href="https://www.francebleu.fr/infos/insolite/apres-rasta-rockett-pornic-rockett-romain-qualifie-pour-la-coupe-d-europe-de-bobsleigh-1635520520" target="_blank" rel="noopener"><img src="images/presse-france-bleu.webp" alt="Article France Bleu Loire Océan : Après Rasta Rockett, Pornic Rockett, Romain qualifié pour la coupe d'Europe de bobsleigh" width="900" height="512" loading="lazy"></a>
+          <figcaption>France Bleu Loire Océan · 12 novembre 2021 · <a href="https://www.francebleu.fr/infos/insolite/apres-rasta-rockett-pornic-rockett-romain-qualifie-pour-la-coupe-d-europe-de-bobsleigh-1635520520" target="_blank" rel="noopener">Lire l'article <i class="ti ti-external-link"></i></a></figcaption>
+        </figure>
       </div>
     </div>
   </section>
