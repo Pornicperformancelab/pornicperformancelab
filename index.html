@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Préparateur physique à Pornic · Pornic Performance Lab</title>
-  <meta name="description" content="Préparateur physique à Pornic (44) : bilan complet offert, programmation sur-mesure et suivi mesuré. Licence STAPS, 4 DU, ancien athlète de haut niveau." />
+  <meta name="description" content="Préparateur physique à Pornic (44) : bilan de performance complet, programmation sur-mesure et suivi mesuré. Licence STAPS, 4 DU, ancien athlète de haut niveau." />
   <link rel="canonical" href="https://pornicperformancelab.com/" />
   <meta property="og:url" content="https://pornicperformancelab.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="Pornic Performance Lab" />
   <meta property="og:title" content="Préparateur physique à Pornic · Pornic Performance Lab" />
-  <meta property="og:description" content="Préparateur physique à Pornic (44) : bilan complet offert, programmation sur-mesure et suivi mesuré. Licence STAPS, 4 DU, ancien athlète de haut niveau." />
+  <meta property="og:description" content="Préparateur physique à Pornic (44) : bilan de performance complet, programmation sur-mesure et suivi mesuré. Licence STAPS, 4 DU, ancien athlète de haut niveau." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -366,7 +366,7 @@
     .offres { background: var(--noir-soft); }
 
     .offres-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
+      display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
     .offre-card {
@@ -457,7 +457,22 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    .offre-prix { font-family: var(--font-serif); font-size: 36px; line-height: 1; margin: 4px 0 14px; color: var(--blanc); }
+    .offre-prix span { font-family: var(--font-sans); font-size: 13px; color: var(--gris); margin-left: 6px; }
+    .tarifs-annexes { margin-top: 16px; border: 1px solid var(--border); border-radius: 12px; padding: 4px 28px; }
+    .tarif-ligne { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+    .tarif-ligne:last-child { border-bottom: none; }
+    .tarif-ligne strong { display: block; font-weight: 500; font-size: 15px; margin-bottom: 3px; }
+    .tarif-ligne span { font-size: 13px; color: var(--gris); line-height: 1.5; }
+    .tarif-prix { font-family: var(--font-serif); font-size: 26px; white-space: nowrap; }
+    .offres-notes { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+    .offres-notes p { font-size: 13px; color: var(--gris); line-height: 1.6; display: flex; gap: 8px; align-items: flex-start; }
+    .offres-notes i { color: var(--rouge); margin-top: 3px; }
+    .offres-notes strong { color: #bbb; font-weight: 500; }
     /* ── RESPONSIVE ── */
+    @media (max-width: 1000px) and (min-width: 769px) {
+      .offres-grid { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
@@ -467,6 +482,7 @@
       .process-grid { grid-template-columns: 1fr 1fr; }
       .diplo-layout { grid-template-columns: 1fr; }
       .offres-grid { grid-template-columns: 1fr; }
+      .tarifs-annexes { padding: 4px 20px; }
       footer { flex-direction: column; text-align: center; }
     }
 
@@ -538,7 +554,7 @@
       <a href="contact.html">Contact</a>
     </div>
     <div class="nav-right">
-      <a href="contact.html" class="nav-cta">Bilan offert</a>
+      <a href="contact.html" class="nav-cta">Réserver</a>
       <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
     </div>
   </nav>
@@ -551,7 +567,7 @@
       <h1>La performance,<br><em>construite</em><br>sur la science.</h1>
       <p class="hero-sub">Préparateur physique à Pornic et dans le Pays de Retz. Un coaching haut de gamme ancré dans l'expérience du sport de haut niveau. Tests complets, programmation sur-mesure, progression mesurée à chaque étape.</p>
       <div class="hero-btns">
-        <a href="contact.html" class="btn-primary">Réserver mon bilan offert</a>
+        <a href="contact.html" class="btn-primary">Réserver mon bilan</a>
         <a href="#methode" class="btn-ghost">Découvrir la méthode</a>
       </div>
       <div class="hero-stats">
@@ -701,37 +717,68 @@
   <!-- ── OFFRES ── -->
   <section class="offres" id="offres">
     <div class="section-inner">
-      <p class="s-label reveal">Offres</p>
+      <p class="s-label reveal">Offres &amp; tarifs</p>
       <h2 class="s-title reveal">Un suivi,<br>une exigence.</h2>
-      <p class="s-sub reveal">Que tu sois sportif amateur ou compétiteur, la rigueur de la méthode reste identique.</p>
+      <p class="s-sub reveal">Que tu sois sportif amateur ou compétiteur, la rigueur de la méthode reste identique. Tout commence par un bilan de performance.</p>
 
       <div class="offres-grid reveal">
+        <div class="offre-card">
+          <h3>Suivi Essentiel</h3>
+          <div class="offre-prix">220 €<span>/ mois</span></div>
+          <p class="offre-desc">Une séance encadrée par semaine, et un programme précis pour tes séances en autonomie.</p>
+          <ul class="offre-items">
+            <li><i class="ti ti-check"></i>1 séance coachée par semaine</li>
+            <li><i class="ti ti-check"></i>Programme sur-mesure pour tes séances en autonomie</li>
+            <li><i class="ti ti-check"></i>Retests toutes les 6 à 8 semaines</li>
+            <li><i class="ti ti-check"></i>Ajustements selon tes résultats</li>
+          </ul>
+        </div>
+
         <div class="offre-card featured">
           <div class="offre-badge">Recommandé</div>
-          <h3>Coaching personnalisé</h3>
-          <p class="offre-desc">L'accompagnement complet : onboarding + programmation + suivi continu + ajustements. Du service haut de gamme.</p>
+          <h3>Suivi Performance</h3>
+          <div class="offre-prix">390 €<span>/ mois</span></div>
+          <p class="offre-desc">L'accompagnement complet, pour progresser vite et sans approximation.</p>
           <ul class="offre-items">
-            <li><i class="ti ti-check"></i>Bilan initial sur toutes les qualités physiques</li>
-            <li><i class="ti ti-check"></i>Programmation 100% sur-mesure</li>
-            <li><i class="ti ti-check"></i>Tests de progression réguliers</li>
-            <li><i class="ti ti-check"></i>Ajustements possibles à tout moment</li>
-            <li><i class="ti ti-check"></i>Conseils nutrition et préparation mentale intégrés</li>
+            <li><i class="ti ti-check"></i>2 séances coachées par semaine</li>
+            <li><i class="ti ti-check"></i>Programme sur-mesure pour tes séances en autonomie</li>
+            <li><i class="ti ti-check"></i>Retests toutes les 6 à 8 semaines</li>
+            <li><i class="ti ti-check"></i>Suivi par messages entre les séances</li>
+            <li><i class="ti ti-check"></i>Conseils nutrition et préparation mentale</li>
           </ul>
-          <div class="offre-lieu"><i class="ti ti-map-pin"></i>Hybrid Training Pornic · Domicile si matériel adapté</div>
         </div>
 
         <div class="offre-card">
           <h3>Préparation spécifique</h3>
-          <p class="offre-desc">Pour préparer une compétition, un événement sportif ou revenir à la performance après une blessure.</p>
+          <div class="offre-prix">790 €<span>/ 12 semaines</span></div>
+          <p class="offre-desc">Compétition, HYROX, concours pompier ou armée, retour après blessure.</p>
           <ul class="offre-items">
-            <li><i class="ti ti-check"></i>Analyse de l'objectif et du contexte</li>
-            <li><i class="ti ti-check"></i>Périodisation orientée performance</li>
-            <li><i class="ti ti-check"></i>Préparation mentale intégrée</li>
-            <li><i class="ti ti-check"></i>Protocole de réathlétisation si besoin</li>
-            <li><i class="ti ti-check"></i>Suivi et ajustements en temps réel</li>
+            <li><i class="ti ti-check"></i>Bilan de performance inclus</li>
+            <li><i class="ti ti-check"></i>12 séances coachées</li>
+            <li><i class="ti ti-check"></i>Périodisation complète jusqu'à l'échéance</li>
+            <li><i class="ti ti-check"></i>Retests et protocole de réathlétisation si besoin</li>
           </ul>
-          <div class="offre-lieu"><i class="ti ti-map-pin"></i>Hybrid Training Pornic · Domicile si matériel adapté</div>
         </div>
+      </div>
+
+      <div class="tarifs-annexes reveal">
+        <div class="tarif-ligne">
+          <div><strong>Bilan de performance</strong><span>90 min de tests + rapport personnalisé · déduit du premier mois si tu t'engages sur un suivi</span></div>
+          <div class="tarif-prix">90 €</div>
+        </div>
+        <div class="tarif-ligne">
+          <div><strong>Séance à l'unité</strong><span>1 h de coaching sur-mesure</span></div>
+          <div class="tarif-prix">60 €</div>
+        </div>
+        <div class="tarif-ligne">
+          <div><strong>Duo</strong><span>1 séance à deux · soit 40 € par personne</span></div>
+          <div class="tarif-prix">80 €</div>
+        </div>
+      </div>
+
+      <div class="offres-notes reveal">
+        <p><i class="ti ti-map-pin"></i><span>Séances à Pornic Hybrid Training, 1 Rue du Chaudron. <strong>Accès à la salle inclus</strong> : aucun abonnement ni droit d'entrée à prévoir. À domicile uniquement si le matériel disponible est suffisant.</span></p>
+        <p><i class="ti ti-calendar"></i><span>Suivis mensuels : engagement minimum de 3 mois.</span></p>
       </div>
     </div>
   </section>
@@ -739,14 +786,14 @@
   <!-- ── CTA ── -->
   <section class="cta-section" id="contact">
     <h2>Prêt à t'entraîner autrement ?</h2>
-    <p>Le premier bilan est offert. On analyse ton niveau, tes objectifs,<br>et on construit la suite ensemble.</p>
-    <a href="contact.html" class="btn-white">Réserver mon bilan offert →</a>
+    <p>Tout commence par le bilan. On analyse ton niveau, tes objectifs,<br>et on construit la suite ensemble.</p>
+    <a href="contact.html" class="btn-white">Réserver mon bilan →</a>
   </section>
 
   <!-- ── FOOTER ── -->
   <footer>
     <div class="footer-logo">PORNIC<span>·</span>PERFORMANCE LAB</div>
-    <p>Hybrid Training Pornic · 1 Rue du Chaudron, 44210 Pornic</p>
+    <p>Pornic Hybrid Training · 1 Rue du Chaudron, 44210 Pornic</p>
     <p>© 2026 — Tous droits réservés</p>
   </footer>
 
