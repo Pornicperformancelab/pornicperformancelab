@@ -482,18 +482,15 @@
     .lien-exemple:hover { color: var(--blanc); }
     .coach { background: var(--noir); }
     .coach-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; }
-    .coach-photo { position: relative; aspect-ratio: 4 / 5; max-width: 460px; width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: radial-gradient(ellipse 75% 60% at 55% 40%, rgba(184,92,56,0.28), transparent 70%), linear-gradient(160deg, #1c1714 0%, #0f0f0f 100%); }
-    .coach-photo::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; }
-    .coach-photo img { position: absolute; left: 0; bottom: -6.4%; height: 97%; width: auto; max-width: none; z-index: 1; }
+    .coach-photo { position: relative; aspect-ratio: 4 / 5; max-width: 460px; width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: #000; }
+    .coach-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
     .coach-lead { font-family: var(--font-serif); font-size: clamp(20px, 2.2vw, 26px); line-height: 1.4; color: var(--blanc); margin: 8px 0 18px; }
     .coach-p { font-size: 15px; color: var(--gris); line-height: 1.8; margin-bottom: 14px; max-width: 560px; }
     .presse-section { background: var(--noir-soft); overflow: hidden; }
-    .presse-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 40px; align-items: center; padding: 8px 0 12px; }
+    .presse-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: start; padding: 8px 0 12px; }
     .coupure { margin: 0; }
     .coupure img { display: block; width: 100%; height: auto; border-radius: 3px; box-shadow: 0 24px 50px rgba(0,0,0,0.55), 0 2px 6px rgba(0,0,0,0.4); transition: transform 0.3s; }
-    .coupure-a img { transform: rotate(-1.2deg); }
-    .coupure-b img { transform: rotate(1.4deg); }
-    .coupure a:hover img { transform: rotate(0deg) scale(1.02); }
+    .coupure a:hover img { transform: scale(1.01); }
     .coupure figcaption { margin-top: 18px; font-size: 12px; color: var(--gris); letter-spacing: 0.03em; }
     .coupure figcaption a { color: var(--rouge); text-decoration: none; }
     @media (max-width: 1100px) { .hero-photo { height: min(70vh, 640px); right: 0; opacity: 0.35 !important; animation: none; } }
@@ -577,7 +574,7 @@
     "@type": "Person",
     "name": "Romain Ooghe",
     "jobTitle": "Préparateur physique",
-    "image": "https://pornicperformancelab.com/images/romain-mobilite.webp"
+    "image": "https://pornicperformancelab.com/images/romain-mobilite.jpg"
   }
 }
   </script>
@@ -656,7 +653,7 @@
   <section class="coach" id="coach">
     <div class="section-inner coach-grid">
       <div class="coach-photo reveal">
-        <img src="images/romain-mobilite.webp" alt="Romain Ooghe pendant une séance de mobilité" width="650" height="1000" loading="lazy">
+        <img src="images/romain-mobilite.jpg" alt="Romain Ooghe pendant une séance de mobilité" width="1080" height="1350" loading="lazy">
       </div>
       <div class="coach-text">
         <p class="s-label reveal">Ton coach</p>
@@ -676,11 +673,11 @@
       <p class="s-sub reveal">De la piste d'athlétisme du Val-Saint-Martin à la Coupe d'Europe de bobsleigh : un parcours suivi par les médias locaux en 2021.</p>
       <div class="presse-grid reveal">
         <figure class="coupure coupure-a">
-          <a href="images/presse-pays-de-retz.webp" target="_blank" rel="noopener"><img src="images/presse-pays-de-retz.webp" alt="Article de presse régionale, page Pays de Retz : Un Pornicais vise les JO 2022 en bobsleigh" width="1100" height="746" loading="lazy"></a>
+          <a href="images/presse-pays-de-retz.jpg" target="_blank" rel="noopener"><img src="images/presse-pays-de-retz.jpg" alt="Article de presse régionale, page Pays de Retz : Un Pornicais vise les JO 2022 en bobsleigh" width="1772" height="2036" loading="lazy"></a>
           <figcaption>Presse régionale · page Pays de Retz · décembre 2021</figcaption>
         </figure>
         <figure class="coupure coupure-b">
-          <a href="https://www.francebleu.fr/infos/insolite/apres-rasta-rockett-pornic-rockett-romain-qualifie-pour-la-coupe-d-europe-de-bobsleigh-1635520520" target="_blank" rel="noopener"><img src="images/presse-france-bleu.webp" alt="Article France Bleu Loire Océan : Après Rasta Rockett, Pornic Rockett, Romain qualifié pour la coupe d'Europe de bobsleigh" width="900" height="512" loading="lazy"></a>
+          <a href="https://www.francebleu.fr/infos/insolite/apres-rasta-rockett-pornic-rockett-romain-qualifie-pour-la-coupe-d-europe-de-bobsleigh-1635520520" target="_blank" rel="noopener"><img src="images/presse-france-bleu.jpg" alt="Article France Bleu Loire Océan : Après Rasta Rockett, Pornic Rockett, Romain qualifié pour la coupe d'Europe de bobsleigh" width="1125" height="1565" loading="lazy"></a>
           <figcaption>France Bleu Loire Océan · 12 novembre 2021 · <a href="https://www.francebleu.fr/infos/insolite/apres-rasta-rockett-pornic-rockett-romain-qualifie-pour-la-coupe-d-europe-de-bobsleigh-1635520520" target="_blank" rel="noopener">Lire l'article <i class="ti ti-external-link"></i></a></figcaption>
         </figure>
       </div>
