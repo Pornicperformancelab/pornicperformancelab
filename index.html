@@ -116,7 +116,7 @@
       mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
     }
 
-    .hero-content { position: relative; z-index: 1; max-width: 820px; }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; }
 
     .hero-eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
@@ -469,6 +469,36 @@
     .offres-notes p { font-size: 13px; color: var(--gris); line-height: 1.6; display: flex; gap: 8px; align-items: flex-start; }
     .offres-notes i { color: var(--rouge); margin-top: 3px; }
     .offres-notes strong { color: #bbb; font-weight: 500; }
+    .hero-photo {
+      position: absolute; right: 3vw; bottom: 0; z-index: 0;
+      height: min(86vh, 860px); width: auto;
+      -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
+      opacity: 0; animation: fadeIn 1s ease forwards 0.4s;
+      pointer-events: none; user-select: none;
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+    .lien-exemple { display: inline-flex; align-items: center; gap: 8px; margin-top: 32px; font-size: 14px; color: var(--rouge); text-decoration: none; border-bottom: 1px solid rgba(184,92,56,0.4); padding-bottom: 3px; }
+    .lien-exemple:hover { color: var(--blanc); }
+    .coach { background: var(--noir); }
+    .coach-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; }
+    .coach-photo { position: relative; }
+    .coach-photo::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 45% 45%, rgba(184,92,56,0.16), transparent 70%); }
+    .coach-photo img { position: relative; width: 100%; max-width: 460px; height: auto; display: block; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 14%), linear-gradient(to top, transparent 0, #000 12%); -webkit-mask-composite: source-in; mask-image: linear-gradient(to right, transparent 0, #000 14%), linear-gradient(to top, transparent 0, #000 12%); mask-composite: intersect; }
+    .coach-lead { font-family: var(--font-serif); font-size: clamp(20px, 2.2vw, 26px); line-height: 1.4; color: var(--blanc); margin: 8px 0 18px; }
+    .coach-p { font-size: 15px; color: var(--gris); line-height: 1.8; margin-bottom: 14px; max-width: 560px; }
+    .presse { margin-top: 28px; display: grid; gap: 10px; }
+    .presse-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gris); }
+    .presse-card { display: flex; flex-direction: column; gap: 6px; border: 1px solid var(--border); border-left: 2px solid var(--rouge); border-radius: 8px; padding: 14px 18px; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+    a.presse-card:hover { background: var(--rouge-light); border-color: rgba(184,92,56,0.4); }
+    .presse-source { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rouge); }
+    .presse-titre { font-family: var(--font-serif); font-size: 18px; line-height: 1.35; color: var(--blanc); }
+    @media (max-width: 1100px) { .hero-photo { height: min(70vh, 640px); right: 0; opacity: 0.35 !important; animation: none; } }
+    @media (max-width: 900px) {
+      .hero-photo { display: none; }
+      .coach-grid { grid-template-columns: 1fr; gap: 24px; }
+      .coach-photo img { max-width: 300px; margin: 0 auto; }
+    }
     /* ── RESPONSIVE ── */
     @media (max-width: 1000px) and (min-width: 769px) {
       .offres-grid { grid-template-columns: 1fr 1fr; }
@@ -537,7 +567,14 @@
     "Réathlétisation",
     "Nutrition du sportif",
     "Préparation mentale"
-  ]
+  ],
+  "image": "https://pornicperformancelab.com/images/romain-course.webp",
+  "founder": {
+    "@type": "Person",
+    "name": "Romain Ooghe",
+    "jobTitle": "Préparateur physique",
+    "image": "https://pornicperformancelab.com/images/romain-mobilite.webp"
+  }
 }
   </script>
 </head>
@@ -550,6 +587,7 @@
       <a href="#methode">Méthode</a>
       <a href="#expertise">Expertise</a>
       <a href="#offres">Offres</a>
+      <a href="exemples.html">Exemples</a>
       <a href="tests.html">Tests</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -562,6 +600,7 @@
   <!-- ── HERO ── -->
   <section class="hero">
     <div class="hero-bg"></div>
+    <img class="hero-photo" src="images/romain-course.webp" alt="Romain Ooghe, préparateur physique à Pornic" width="741" height="1300" fetchpriority="high">
     <div class="hero-content">
       <div class="hero-eyebrow">Préparation physique · Pornic</div>
       <h1>La performance,<br><em>construite</em><br>sur la science.</h1>
@@ -609,6 +648,33 @@
     </div>
   </div>
 
+  <!-- ── COACH ── -->
+  <section class="coach" id="coach">
+    <div class="section-inner coach-grid">
+      <div class="coach-photo reveal">
+        <img src="images/romain-mobilite.webp" alt="Romain Ooghe pendant une séance de mobilité" width="650" height="1000" loading="lazy">
+      </div>
+      <div class="coach-text">
+        <p class="s-label reveal">Ton coach</p>
+        <h2 class="s-title reveal">Romain Ooghe</h2>
+        <p class="coach-lead reveal">Avant d'entraîner les autres, j'ai passé des années à chercher mes propres limites.</p>
+        <p class="coach-p reveal">Football américain au Pôle France d'Amiens puis avec les London Blitz, bobsleigh en Coupe d'Europe comme pousseur avec une équipe française qui visait les JO de Pékin 2022, puis quatre ans à la tête de CrossFit Pornic : l'exigence du haut niveau, je l'ai vécue de l'intérieur.</p>
+        <p class="coach-p reveal">Aujourd'hui, je mets cette expérience et ma formation universitaire (STAPS et 4 diplômes universitaires) au service des sportifs de tous niveaux, à Pornic Hybrid Training. Ma règle est simple : rien n'est programmé sans avoir été mesuré.</p>
+        <div class="presse reveal">
+          <div class="presse-label">Dans la presse</div>
+          <a class="presse-card" href="https://www.francebleu.fr/infos/insolite/apres-rasta-rockett-pornic-rockett-romain-qualifie-pour-la-coupe-d-europe-de-bobsleigh-1635520520" target="_blank" rel="noopener">
+            <span class="presse-source">France Bleu Loire Océan · novembre 2021 <i class="ti ti-external-link"></i></span>
+            <span class="presse-titre">« Après Rasta Rockett, Pornic Rockett : Romain, qualifié pour la coupe d'Europe de bobsleigh »</span>
+          </a>
+          <div class="presse-card">
+            <span class="presse-source">Presse régionale · Pays de Retz · décembre 2021</span>
+            <span class="presse-titre">« Un Pornicais vise les JO 2022 en bobsleigh »</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── MÉTHODE ── -->
   <section class="methode" id="methode">
     <div class="section-inner">
@@ -638,6 +704,7 @@
           <p>Le programme évolue en continu selon ta vie, ton corps et tes retours. Ajustements possibles à tout moment.</p>
         </div>
       </div>
+      <a href="exemples.html" class="lien-exemple reveal">Voir un exemple réel de périodisation <i class="ti ti-arrow-right"></i></a>
     </div>
   </section>
 
@@ -701,7 +768,7 @@
             <div class="parcours-card">
               <div class="parcours-sport">Bobsleigh</div>
               <h4>Représentant de la France</h4>
-              <p>Pousseur au sein de l'équipe de France. Qualités de démarrage explosif, puissance maximale en accélération et coordination à la milliseconde.</p>
+              <p>Pousseur en Coupe d'Europe 2021-2022 (Lillehammer, Altenberg) avec une équipe française en lice pour les JO de Pékin. Démarrage explosif, puissance maximale en accélération et coordination à la milliseconde.</p>
             </div>
             <div class="parcours-card">
               <div class="parcours-sport">CrossFit</div>

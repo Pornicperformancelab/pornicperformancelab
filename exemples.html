@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exemples de périodisation et de séances · Pornic Performance Lab</title>
+  <meta name="description" content="Un exemple réel et anonymisé de périodisation sur 11 semaines, avec le détail de deux séances : en salle et à la maison. Préparation physique à Pornic." />
+  <link rel="canonical" href="https://pornicperformancelab.com/exemples" />
+  <meta property="og:url" content="https://pornicperformancelab.com/exemples" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Pornic Performance Lab" />
+  <meta property="og:title" content="Exemples de périodisation et de séances · Pornic Performance Lab" />
+  <meta property="og:description" content="Un exemple réel et anonymisé de périodisation sur 11 semaines, avec le détail de deux séances : en salle et à la maison. Préparation physique à Pornic." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/tabler-icons.min.css" />
+
+  <style>
+    :root {
+      --rouge: #B85C38;
+      --rouge-light: rgba(184,92,56,0.10);
+      --noir: #0c0c0c;
+      --noir-soft: #161616;
+      --blanc: #f5f2ed;
+      --gris: #888;
+      --gris-light: #444;
+      --border: rgba(255,255,255,0.08);
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-sans: 'DM Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); background: var(--noir); color: var(--blanc); overflow-x: hidden; }
+
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+      background: rgba(12,12,12,0.85); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blanc); text-decoration: none; }
+    .nav-logo span { color: var(--rouge); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { font-size: 13px; color: var(--gris); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--blanc); }
+    .nav-cta { font-family: var(--font-sans); font-size: 13px; font-weight: 500; background: var(--rouge); color: #fff; border: none; padding: 9px 20px; border-radius: 6px; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .page-header {
+      padding: 140px 48px 72px;
+      background: var(--noir-soft);
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(ellipse at 30% 60%, rgba(184,92,56,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .page-header-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rouge); border: 1px solid rgba(184,92,56,0.35); padding: 6px 14px; border-radius: 4px; margin-bottom: 24px; }
+    .page-header h1 { font-family: var(--font-serif); font-size: clamp(36px, 5vw, 64px); font-weight: 400; line-height: 1.15; margin-bottom: 16px; }
+    .page-header h1 em { font-style: italic; color: var(--rouge); }
+    .page-header p { font-size: 16px; color: var(--gris); max-width: 540px; line-height: 1.75; }
+
+    /* SECTION */
+    .section-inner { max-width: 1100px; margin: 0 auto; padding: 80px 48px; }
+    .s-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rouge); margin-bottom: 12px; }
+    .s-title { font-family: var(--font-serif); font-size: clamp(26px, 3vw, 40px); font-weight: 400; line-height: 1.2; margin-bottom: 10px; }
+    .s-sub { font-size: 15px; color: var(--gris); max-width: 520px; line-height: 1.75; margin-bottom: 48px; }
+
+    /* ÉTAPES VERTICALES */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step {
+      display: grid; grid-template-columns: 80px 1fr;
+      gap: 0 32px;
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num-col { display: flex; flex-direction: column; align-items: center; }
+    .step-num {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(184,92,56,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-serif); font-size: 20px; color: var(--rouge);
+      flex-shrink: 0;
+    }
+    .step-line {
+      width: 1px; flex: 1; margin-top: 12px;
+      background: linear-gradient(to bottom, rgba(184,92,56,0.2), transparent);
+    }
+    .step:last-child .step-line { display: none; }
+
+    .step-body {}
+    .step-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rouge); margin-bottom: 10px; }
+    .step-title { font-family: var(--font-serif); font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; margin-bottom: 16px; }
+    .step-desc { font-size: 15px; color: var(--gris); line-height: 1.8; max-width: 600px; margin-bottom: 24px; }
+    .step-details { display: flex; flex-direction: column; gap: 10px; }
+    .detail-item { display: flex; gap: 12px; align-items: flex-start; }
+    .detail-icon { color: var(--rouge); font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+    .detail-text { font-size: 14px; color: #bbb; line-height: 1.6; }
+    .detail-text strong { color: var(--blanc); font-weight: 500; }
+
+    /* PRINCIPES */
+    .principes-section { background: var(--noir-soft); }
+    .principes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .principe-card {
+      border: 1px solid var(--border); border-radius: 10px; padding: 28px 24px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .principe-card:hover { border-color: rgba(184,92,56,0.3); background: var(--rouge-light); }
+    .principe-icon { font-size: 24px; color: var(--rouge); margin-bottom: 16px; }
+    .principe-card h3 { font-family: var(--font-serif); font-size: 20px; font-weight: 400; margin-bottom: 10px; }
+    .principe-card p { font-size: 14px; color: var(--gris); line-height: 1.7; }
+
+    /* DIFFÉRENTIATEURS */
+    .diff-section { background: var(--noir); }
+    .diff-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .diff-quote {
+      font-family: var(--font-serif);
+      font-size: clamp(20px, 2.5vw, 30px);
+      font-weight: 400; line-height: 1.5;
+      color: var(--blanc);
+    }
+    .diff-quote em { font-style: italic; color: var(--rouge); }
+    .diff-list { display: flex; flex-direction: column; gap: 16px; }
+    .diff-item { display: flex; gap: 14px; padding: 16px; border: 1px solid var(--border); border-radius: 8px; }
+    .diff-item i { color: var(--rouge); font-size: 18px; flex-shrink: 0; }
+    .diff-item h4 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .diff-item p { font-size: 13px; color: var(--gris); line-height: 1.6; }
+
+    /* CTA */
+    .cta-section { background: var(--rouge); padding: 80px 48px; text-align: center; }
+    .cta-section h2 { font-family: var(--font-serif); font-size: clamp(26px, 4vw, 48px); font-weight: 400; color: #fff; margin-bottom: 14px; }
+    .cta-section p { font-size: 16px; color: rgba(255,255,255,0.75); margin-bottom: 32px; }
+    .btn-white { font-family: var(--font-sans); font-size: 14px; font-weight: 500; background: #fff; color: var(--rouge); border: none; padding: 14px 32px; border-radius: 6px; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
+
+    footer { background: var(--noir); border-top: 1px solid var(--border); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-logo { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
+    .footer-logo span { color: var(--rouge); }
+    footer p { font-size: 12px; color: var(--gris-light); }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-header, .section-inner, .cta-section { padding-left: 20px; padding-right: 20px; }
+      .step { grid-template-columns: 48px 1fr; gap: 0 16px; }
+      .principes-grid { grid-template-columns: 1fr; }
+      .diff-layout { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+    }
+
+
+    /* ── EXEMPLES ── */
+    .ctx-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .ctx-card { border: 1px solid var(--border); border-radius: 10px; padding: 26px 24px; }
+    .ctx-card i { font-size: 22px; color: var(--rouge); }
+    .ctx-card h3 { font-family: var(--font-serif); font-weight: 400; font-size: 20px; margin: 12px 0 8px; }
+    .ctx-card p { font-size: 14px; color: var(--gris); line-height: 1.7; }
+    .pz-chart { border: 1px solid var(--border); border-radius: 12px; padding: 24px 20px 18px; margin-bottom: 24px; background: rgba(255,255,255,0.015); }
+    .pz-cols { display: grid; grid-template-columns: repeat(11, 1fr); gap: 8px; align-items: end; }
+    .pz-col { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .pz-marks { height: 22px; display: flex; gap: 2px; align-items: flex-end; }
+    .pz-mark { font-size: 15px; line-height: 1; }
+    .pz-test { color: var(--gris); }
+    .pz-comp { color: #e3b35a; }
+    .pz-bar-wrap { width: 100%; height: 180px; display: flex; align-items: flex-end; }
+    .pz-bar { width: 100%; border-radius: 5px 5px 2px 2px; }
+    .pz-week { font-size: 11px; color: var(--gris); letter-spacing: 0.04em; }
+    .pz-dev { background: rgba(184,92,56,0.55); }
+    .pz-pic { background: var(--rouge); }
+    .pz-deload { background: #4a4a4a; }
+    .pz-taper { background: #7d6a4a; }
+    .pz-comp.pz-bar, .dot.pz-comp { background: #e3b35a; }
+    .pz-legend { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 20px; font-size: 12px; color: var(--gris); }
+    .pz-legend > span { display: inline-flex; align-items: center; gap: 6px; }
+    .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; flex-shrink: 0; }
+    .pz-legend .dot { margin-right: 0; }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--border); border-radius: 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th { text-align: left; font-weight: 500; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gris); padding: 12px 14px; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.02); }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); color: #bbb; line-height: 1.5; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    .pz-table { min-width: 760px; }
+    .td-week { color: var(--blanc); font-weight: 500; white-space: nowrap; }
+    .td-focus { color: var(--gris); }
+    .pill { display: inline-block; font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--border); color: var(--gris); padding: 3px 8px; border-radius: 4px; margin-left: 4px; white-space: nowrap; }
+    .pill-comp { border-color: rgba(227,179,90,0.4); color: #e3b35a; }
+    .pill-salle { border-color: rgba(184,92,56,0.5); color: var(--rouge); margin-left: 0; }
+    .pill-maison { border-color: rgba(255,255,255,0.2); color: var(--blanc); margin-left: 0; }
+    .note { font-size: 12px; color: var(--gris); margin-top: 14px; line-height: 1.6; }
+    .seance { border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin-bottom: 20px; background: var(--noir); }
+    .seance-head h3 { font-family: var(--font-serif); font-weight: 400; font-size: clamp(22px, 2.4vw, 28px); margin: 14px 0 10px; }
+    .seance-head p { font-size: 14px; color: var(--gris); line-height: 1.7; max-width: 640px; margin-bottom: 20px; }
+    .seance-meta { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13px; color: #bbb; margin-bottom: 12px; }
+    .seance-meta i { color: var(--rouge); margin-right: 6px; }
+    .s-table { min-width: 600px; }
+    .tr-bloc td { background: rgba(184,92,56,0.07); color: var(--blanc); font-weight: 500; font-size: 12px; letter-spacing: 0.04em; }
+    .td-ex { color: var(--blanc); }
+    .td-sr { white-space: nowrap; color: var(--blanc); }
+    .m-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .m-bloc { border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; }
+    .m-head { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 10px; font-size: 14px; }
+    .m-head span { font-size: 12px; color: var(--rouge); white-space: nowrap; }
+    .m-bloc ul { list-style: none; }
+    .m-bloc li { display: flex; justify-content: space-between; gap: 12px; font-size: 13px; color: #bbb; padding: 8px 0; border-top: 1px solid var(--border); }
+    .m-bloc .rep { color: var(--blanc); white-space: nowrap; text-align: right; }
+    @media (max-width: 768px) {
+      .ctx-grid, .m-grid { grid-template-columns: 1fr; }
+      .pz-cols { gap: 4px; }
+      .pz-bar-wrap { height: 140px; }
+      .pz-week { font-size: 9px; }
+      .pz-mark { font-size: 12px; }
+      .seance { padding: 20px 16px; }
+    }
+
+    /* ── MENU MOBILE ── */
+    .nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--blanc); width: 40px; height: 40px; border-radius: 6px; cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 5px; padding: 0; }
+    .nav-toggle span { display: block; width: 18px; height: 1.5px; background: currentColor; transition: transform 0.2s, opacity 0.2s; }
+    nav.open .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+    nav.open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    @media (max-width: 480px) {
+      .nav-logo { font-size: 11px !important; letter-spacing: 0.08em !important; }
+      .nav-cta { font-size: 12px !important; padding: 8px 12px !important; }
+    }
+    .nav-logo, .nav-cta { white-space: nowrap; }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    @media (max-width: 768px) {
+      .nav-toggle { display: inline-flex; }
+      nav.open .nav-links { display: flex; flex-direction: column; gap: 0; position: absolute; top: 64px; left: 0; right: 0; background: var(--noir); border-bottom: 1px solid var(--border); padding: 8px 20px 16px; }
+      nav.open .nav-links a { font-size: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); color: var(--blanc); }
+      nav.open .nav-links a:last-child { border-bottom: none; }
+    }
+    a:focus-visible, button:focus-visible, .chip:focus-visible, .dispo-chip:focus-visible { outline: 2px solid var(--rouge); outline-offset: 2px; }
+  </style>
+</head>
+<body>
+
+  <nav aria-label="Navigation principale">
+    <a href="index.html" class="nav-logo">PORNIC<span>·</span>PERFORMANCE LAB</a>
+    <div class="nav-links" id="nav-links">
+      <a href="methode.html">Méthode</a>
+      <a href="index.html#expertise">Expertise</a>
+      <a href="index.html#offres">Offres</a>
+      <a href="exemples.html" class="active">Exemples</a>
+      <a href="tests.html">Tests</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta">Réserver</a>
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="tag">Exemples concrets</div>
+      <h1>Une vraie <em>périodisation</em>,<br>pas un programme copié-collé.</h1>
+      <p>Voici le plan réellement suivi par une jeune athlète que j'accompagne, anonymisé. Onze semaines, deux compétitions en fin de bloc, et chaque séance à sa place.</p>
+    </div>
+  </header>
+
+  <!-- CONTEXTE -->
+  <section style="background: var(--noir);">
+    <div class="section-inner">
+      <p class="s-label">Le point de départ</p>
+      <h2 class="s-title">Un objectif, des contraintes.</h2>
+      <p class="s-sub">Un plan se construit d'abord autour de la vie réelle de l'athlète, pas autour d'un modèle théorique.</p>
+      <div class="ctx-grid">
+        <div class="ctx-card"><i class="ti ti-target-arrow"></i><h3>Objectif</h3><p>Deux pics de forme en fin de bloc : un championnat national, puis une compétition internationale seulement 4 jours plus tard.</p></div>
+        <div class="ctx-card"><i class="ti ti-calendar-week"></i><h3>Rythme</h3><p>1 séance par semaine à la maison, avec un simple medecine ball, et 3 séances par mois en salle, encadrées, avec tout le matériel.</p></div>
+        <div class="ctx-card"><i class="ti ti-scale"></i><h3>Contraintes</h3><p>Une jeune athlète avec un gros volume technique en club et l'école à côté : la fatigue totale doit rester sous contrôle.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PÉRIODISATION -->
+  <section class="principes-section">
+    <div class="section-inner">
+      <p class="s-label">La périodisation</p>
+      <h2 class="s-title">11 semaines, vues d'en haut.</h2>
+      <p class="s-sub">La charge monte par vagues, redescend volontairement toutes les 3 à 4 semaines, puis s'efface pour arriver fraîche aux compétitions.</p>
+
+      <div class="pz-chart" role="img" aria-label="Évolution de la charge d'entraînement sur 11 semaines">
+        <div class="pz-cols">
+          <div class="pz-col">
+            <div class="pz-marks"><span class="pz-mark pz-test" title="Tests de contrôle"><i class="ti ti-ruler-measure"></i></span></div>
+            <div class="pz-bar-wrap"><div class="pz-bar pz-dev" style="height:55%"></div></div>
+            <div class="pz-week">S1</div>
+          </div>
+          <div class="pz-col">
+            <div class="pz-marks"></div>
+            <div class="pz-bar-wrap"><div class="pz-bar pz-dev" style="height:45%"></div></div>
+            <div class="pz-week">S2</div>
+          </div>
+          <div class="pz-col">
+            <div class="pz-marks"></div>
+            <div class="pz-bar-wrap"><div class="pz-bar pz-dev" style="height:75%"></div></div>
+            <div class="pz-week">S3</div>
+          </div>
+          <div class="pz-col">
+            <div class="pz-marks"></div>
+            <div class="pz-bar-wrap"><div class="pz-bar pz-deload" style="height:30%"></div></div>
+            <div class="pz-week">S4</div>
+          </div>
+          <div class="pz-col">
+            <div class="pz-marks"></div>
+            <div class="pz-bar-wrap"><div class="pz-bar pz-dev" style="height:75%"></div></div>
+            <div class="pz-week">S5</div>
+          </div>
+          <div class="pz-col">
+            <div class="pz-marks"></div>
+            <div class="pz-bar-wrap"><div class="pz-bar pz-dev" style="height:75%"></div></div>
+            <div class="pz-week">S6</div>
+          </div>
+          <div class="pz-col">
+            <div class="pz-marks"></div>
+            <div class="pz-bar-wrap"><div class="pz-bar pz-pic" style="height:90%"></div></div>
+            <div class="pz-week">S7</div>
+          </div>
+          <div class="pz-col">
+            <div class="pz-marks"><span class="pz-mark pz-test" title="Tests de contrôle"><i class="ti ti-ruler-measure"></i></span></div>
+            <div class="pz-bar-wrap"><div class="pz-bar pz-pic" style="height:95%"></div></div>
+            <div class="pz-week">S8</div>
+          </div>
+          <div class="pz-col">
+            <div class="pz-marks"></div>
+            <div class="pz-bar-wrap"><div class="pz-bar pz-deload" style="height:30%"></div></div>
+            <div class="pz-week">S9</div>
+          </div>
+          <div class="pz-col">
+            <div class="pz-marks"><span class="pz-mark pz-test" title="Tests de contrôle"><i class="ti ti-ruler-measure"></i></span><span class="pz-mark pz-comp" title="Compétition"><i class="ti ti-trophy"></i></span></div>
+            <div class="pz-bar-wrap"><div class="pz-bar pz-taper" style="height:25%"></div></div>
+            <div class="pz-week">S10</div>
+          </div>
+          <div class="pz-col">
+            <div class="pz-marks"><span class="pz-mark pz-comp" title="Compétition"><i class="ti ti-trophy"></i></span></div>
+            <div class="pz-bar-wrap"><div class="pz-bar pz-comp" style="height:12%"></div></div>
+            <div class="pz-week">S11</div>
+          </div>
+        </div>
+        <div class="pz-legend">
+          <span><span class="dot pz-dev"></span>Développement</span>
+          <span><span class="dot pz-pic"></span>Pic du bloc</span>
+          <span><span class="dot pz-deload"></span>Semaine allégée</span>
+          <span><span class="dot pz-taper"></span>Affûtage</span>
+          <span><span class="dot pz-comp"></span>Compétition</span>
+          <span><i class="ti ti-ruler-measure"></i>Tests</span>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="pz-table">
+          <thead><tr><th>Sem.</th><th>Phase</th><th>Séance en salle</th><th>Séance maison</th><th>Focus</th></tr></thead>
+          <tbody>
+            <tr><td class="td-week">S1</td><td><span class="dot pz-dev"></span>Reprise <span class="pill">Tests</span></td><td>Force + explosivité · modérée</td><td>Gainage & renfo léger</td><td class="td-focus">Relance après compétition</td></tr>
+            <tr><td class="td-week">S2</td><td><span class="dot pz-dev"></span>Développement</td><td>—</td><td>Renfo musculaire complet</td><td class="td-focus">Gainage, proprioception</td></tr>
+            <tr><td class="td-week">S3</td><td><span class="dot pz-dev"></span>Développement</td><td>Puissance / pliométrie · élevée</td><td>Gainage avancé</td><td class="td-focus">Puissance, endurance spécifique</td></tr>
+            <tr><td class="td-week">S4</td><td><span class="dot pz-deload"></span>Allégée</td><td>—</td><td>Full body, volume réduit</td><td class="td-focus">Récupération active</td></tr>
+            <tr><td class="td-week">S5</td><td><span class="dot pz-dev"></span>Développement</td><td>Unilatéral + force max · élevée</td><td>Gainage & renfo (+1 tour)</td><td class="td-focus">Force relative, prévention</td></tr>
+            <tr><td class="td-week">S6</td><td><span class="dot pz-dev"></span>Développement</td><td>Force + explosivité · avancé</td><td>Renfo complet (+1 tour, tempo)</td><td class="td-focus">Force, explosivité</td></tr>
+            <tr><td class="td-week">S7</td><td><span class="dot pz-pic"></span>Pic du bloc</td><td>Puissance / pliométrie · très élevée</td><td>Gainage avancé (+ temps)</td><td class="td-focus">Pliométrie chargée</td></tr>
+            <tr><td class="td-week">S8</td><td><span class="dot pz-pic"></span>Pic du bloc <span class="pill">Tests</span></td><td>Unilatéral + force max · très élevée</td><td>Full body explosif</td><td class="td-focus">Force, transfert rotationnel</td></tr>
+            <tr><td class="td-week">S9</td><td><span class="dot pz-deload"></span>Allégée</td><td>—</td><td>Gainage, volume réduit</td><td class="td-focus">Décrassage</td></tr>
+            <tr><td class="td-week">S10</td><td><span class="dot pz-taper"></span>Affûtage <span class="pill pill-comp">Championnat national</span> <span class="pill">Tests</span></td><td>Affûtage court · légère</td><td>Mobilité & activation</td><td class="td-focus">Fraîcheur, routine</td></tr>
+            <tr><td class="td-week">S11</td><td><span class="dot pz-comp"></span>Compétition <span class="pill pill-comp">Compétition internationale</span></td><td>—</td><td>Récupération uniquement</td><td class="td-focus">Gestion de la fatigue</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Hauteur des barres : niveau de charge visé (effort ressenti et volume), à titre indicatif.</p>
+    </div>
+  </section>
+
+  <!-- PRINCIPES -->
+  <section style="background: var(--noir);">
+    <div class="section-inner">
+      <p class="s-label">Ce qui fait la différence</p>
+      <h2 class="s-title">Les règles du bloc.</h2>
+      <p class="s-sub">Ce sont ces détails, invisibles dans un programme générique, qui font progresser sans blesser.</p>
+      <div class="principes-grid">
+        <div class="principe-card"><div class="principe-icon"><i class="ti ti-trending-up"></i></div><h3>Progression écrite</h3><p>Chaque séance maison revient deux fois dans le bloc, la seconde avec plus de tours, de répétitions ou de temps de gainage.</p></div>
+        <div class="principe-card"><div class="principe-icon"><i class="ti ti-battery-2"></i></div><h3>Allègements planifiés</h3><p>Semaines 4 et 9 : deux tours seulement, aucun saut ni lancer. Même en forme, on n'ajoute rien, c'est voulu.</p></div>
+        <div class="principe-card"><div class="principe-icon"><i class="ti ti-ruler-measure"></i></div><h3>Tests intégrés</h3><p>Détente verticale, vitesse de réaction, gainage, mobilité de hanche : mesurés en début, au milieu et avant l'affûtage, toujours dans les mêmes conditions.</p></div>
+        <div class="principe-card"><div class="principe-icon"><i class="ti ti-shield-check"></i></div><h3>Repères de charge jeunes</h3><p>Même en charge « très élevée » : effort maximum 8/10, deux répétitions en réserve, jamais à l'échec. La charge n'augmente que si le geste est parfait.</p></div>
+        <div class="principe-card"><div class="principe-icon"><i class="ti ti-shoe"></i></div><h3>Prévention à chaque séance</h3><p>Cinq minutes de travail de cheville dans chaque échauffement, à la maison comme en salle, là où la discipline sollicite le plus.</p></div>
+        <div class="principe-card"><div class="principe-icon"><i class="ti ti-notebook"></i></div><h3>Carnet de charge</h3><p>Effort ressenti, sommeil et sensations notés après chaque séance, et partagés avec l'entraîneur du club pour ne pas empiler les fatigues.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SÉANCES -->
+  <section class="principes-section">
+    <div class="section-inner">
+      <p class="s-label">Deux séances du bloc</p>
+      <h2 class="s-title">Le détail, séance par séance.</h2>
+      <p class="s-sub">L'athlète reçoit une fiche pour chaque séance, avec les consignes, les vidéos de démonstration et une colonne pour noter les charges.</p>
+
+      <div class="seance">
+        <div class="seance-head">
+          <div><span class="pill pill-salle">En salle · encadrée</span> <span class="pill">Semaine 6</span></div>
+          <h3>Force fonctionnelle + explosivité</h3>
+          <div class="seance-meta"><span><i class="ti ti-clock"></i>~70 min</span><span><i class="ti ti-flame"></i>Effort visé 7-8/10</span><span><i class="ti ti-barbell"></i>Matériel complet</span></div>
+          <p>Version avancée d'une séance déjà faite en semaine 1 : une série de plus sur la force, box plus haute, récupération raccourcie sur l'explosivité.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="s-table">
+            <thead><tr><th>Exercice</th><th>Séries × reps</th><th>Consignes</th></tr></thead>
+            <tbody>
+              <tr class="tr-bloc"><td colspan="3">Échauffement · 10-12 min</td></tr><tr><td class="td-ex">Mobilité + cardio + gainage court</td><td class="td-sr">—</td><td>Mobilité dynamique 4 min, rameur ou bike 3-4 min, planche + latéral 2 × 20 s</td></tr><tr><td class="td-ex">Prévention cheville</td><td class="td-sr">2 × 10</td><td>Montées sur pointes lentes (3 s en descente) + équilibre unipodal 2 × 20 s/jambe</td></tr><tr class="tr-bloc"><td colspan="3">Force · 18 min</td></tr><tr><td class="td-ex">Back squat ou goblet squat lourd</td><td class="td-sr">5 × 6</td><td>Profondeur contrôlée, dos neutre</td></tr><tr><td class="td-ex">Soulevé de terre roumain barre</td><td class="td-sr">4 × 8</td><td>Hanche qui recule, dos plat</td></tr><tr><td class="td-ex">Tirage horizontal poulie</td><td class="td-sr">4 × 10</td><td>Omoplates serrées en fin de tirage</td></tr><tr><td class="td-ex">Développé militaire léger</td><td class="td-sr">3 × 8</td><td>Gainage fort, pas de cambrure</td></tr><tr class="tr-bloc"><td colspan="3">Explosivité · 15 min</td></tr><tr><td class="td-ex">Box jump</td><td class="td-sr">4 × 5</td><td>Box plus haute qu'au 1er passage, réception silencieuse</td></tr><tr><td class="td-ex">Sauts unipodaux réactifs</td><td class="td-sr">3 × 5 / jambe</td><td>Contact au sol court, genou dans l'axe</td></tr><tr><td class="td-ex">Medball chest throw contre mur</td><td class="td-sr">3 × 10</td><td>Extension complète, intention maximale</td></tr><tr class="tr-bloc"><td colspan="3">Gainage / transfert · 10 min</td></tr><tr><td class="td-ex">Pallof press câble</td><td class="td-sr">3 × 10 / côté</td><td>Aucune rotation du bassin</td></tr><tr><td class="td-ex">Planche dynamique lestée</td><td class="td-sr">3 × 8</td><td>Bassin stable pendant les transferts</td></tr><tr class="tr-bloc"><td colspan="3">Retour au calme · 5-8 min</td></tr><tr><td class="td-ex">Étirements, mobilité, respiration</td><td class="td-sr">—</td><td>Hanches, ischio-jambiers, mollets, dos</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="seance">
+        <div class="seance-head">
+          <div><span class="pill pill-maison">Maison · en autonomie</span> <span class="pill">Semaine 2</span></div>
+          <h3>Renforcement musculaire &amp; gainage</h3>
+          <div class="seance-meta"><span><i class="ti ti-clock"></i>~65 min</span><span><i class="ti ti-ball-basketball"></i>Medecine ball + tapis</span><span><i class="ti ti-repeat"></i>3 blocs · 3 tours</span></div>
+          <p>Échauffement de 10 minutes (mobilité, activation, prévention cheville), puis chaque bloc est répété avant de passer au suivant. Qualité avant vitesse.</p>
+        </div>
+        <div class="m-grid">
+          <div class="m-bloc"><div class="m-head"><strong>Bloc 1 · Bas du corps</strong><span>3 tours</span></div><ul><li><span>Goblet squat</span><span class="rep">12</span></li><li><span>Split squat pied arrière surélevé</span><span class="rep">8 / jambe</span></li><li><span>Hip thrust avec medecine ball</span><span class="rep">15</span></li></ul></div><div class="m-bloc"><div class="m-head"><strong>Bloc 2 · Unilatéral & explosivité</strong><span>3 tours</span></div><ul><li><span>Soulevé de terre roumain en fente</span><span class="rep">8 / jambe</span></li><li><span>Fente arrière</span><span class="rep">8 / jambe</span></li><li><span>Fentes sautées</span><span class="rep">6 / jambe</span></li></ul></div><div class="m-bloc"><div class="m-head"><strong>Bloc 3 · Gainage</strong><span>3 tours</span></div><ul><li><span>Curtsy squat</span><span class="rep">10 / jambe</span></li><li><span>Russian twist</span><span class="rep">20</span></li><li><span>Dead bug avec medecine ball</span><span class="rep">20</span></li></ul></div><div class="m-bloc"><div class="m-head"><strong>Finisher spécifique</strong><span>3 passages</span></div><ul><li><span>Enchaînement technique de la discipline, à intensité compétition (60 s de récupération en marchant)</span><span class="rep">×3</span></li></ul></div>
+        </div>
+      </div>
+
+      <p class="note">Exemple réel, anonymisé : le nom, l'âge exact, la discipline et les compétitions ont été retirés. Ce plan a été construit pour une athlète précise, après bilan : il n'est pas fait pour être reproduit tel quel.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ton plan à toi commence par un bilan.</h2>
+    <p>90 minutes de tests pour savoir d'où tu pars,<br>puis une périodisation construite pour ton objectif.</p>
+    <a href="contact.html" class="btn-white">Réserver mon bilan →</a>
+  </section>
+
+  <footer>
+    <div class="footer-logo">PORNIC<span>·</span>PERFORMANCE LAB</div>
+    <p>Pornic Hybrid Training · 1 Rue du Chaudron, 44210 Pornic</p>
+    <p>© 2026 — Tous droits réservés</p>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => obs.observe(el));
+  </script>
+
+  <script>
+    (function () {
+      const nav = document.querySelector('nav');
+      const btn = nav.querySelector('.nav-toggle');
+      btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+        btn.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      });
+      nav.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }));
+    })();
+  </script>
+</body>
+</html>
