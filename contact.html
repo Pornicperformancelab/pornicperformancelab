@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/tabler-icons.min.css" />
 
   <style>
     :root {
@@ -160,6 +160,7 @@
     }
     .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(184,92,56,0.35); }
     .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-error { font-size: 13px; color: #e08a66; text-align: center; line-height: 1.5; }
     .form-note { font-size: 12px; color: var(--gris); text-align: center; }
 
     /* Confirmation */
@@ -196,20 +197,43 @@
       .dispo-grid { grid-template-columns: repeat(2, 1fr); }
       footer { flex-direction: column; text-align: center; }
     }
+
+    /* ── MENU MOBILE ── */
+    .nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--blanc); width: 40px; height: 40px; border-radius: 6px; cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 5px; padding: 0; }
+    .nav-toggle span { display: block; width: 18px; height: 1.5px; background: currentColor; transition: transform 0.2s, opacity 0.2s; }
+    nav.open .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+    nav.open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    @media (max-width: 480px) {
+      .nav-logo { font-size: 11px !important; letter-spacing: 0.08em !important; }
+      .nav-cta { font-size: 12px !important; padding: 8px 12px !important; }
+    }
+    .nav-logo, .nav-cta { white-space: nowrap; }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    @media (max-width: 900px) {
+      .nav-toggle { display: inline-flex; }
+      nav.open .nav-links { display: flex; flex-direction: column; gap: 0; position: absolute; top: 64px; left: 0; right: 0; background: var(--noir); border-bottom: 1px solid var(--border); padding: 8px 20px 16px; }
+      nav.open .nav-links a { font-size: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); color: var(--blanc); }
+      nav.open .nav-links a:last-child { border-bottom: none; }
+    }
+    a:focus-visible, button:focus-visible, .chip:focus-visible, .dispo-chip:focus-visible { outline: 2px solid var(--rouge); outline-offset: 2px; }
   </style>
 </head>
 <body>
 
-  <nav>
+  <nav aria-label="Navigation principale">
     <a href="index.html" class="nav-logo">PORNIC<span>·</span>PERFORMANCE LAB</a>
-    <div class="nav-links">
+    <div class="nav-links" id="nav-links">
       <a href="methode.html">Méthode</a>
       <a href="index.html#expertise">Expertise</a>
       <a href="index.html#offres">Offres</a>
       <a href="tests.html">Tests</a>
       <a href="contact.html" class="active">Contact</a>
     </div>
-    <a href="contact.html" class="nav-cta">Bilan offert</a>
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta">Bilan offert</a>
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    </div>
   </nav>
 
   <div class="contact-layout">
@@ -255,7 +279,11 @@
           <p>Remplis ce formulaire — je te recontacte sous 24h pour confirmer le créneau.</p>
         </div>
 
-        <form class="form" id="contactForm" onsubmit="handleSubmit(event)">
+        <form class="form" id="contactForm" name="bilan" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+            <input type="hidden" name="form-name" value="bilan" />
+            <input type="hidden" name="objectifs" value="" />
+            <input type="hidden" name="disponibilites" value="" />
+            <p hidden><label>Ne pas remplir : <input name="bot-field" /></label></p>
 
           <div class="form-row">
             <div class="field">
@@ -337,6 +365,8 @@
               Envoyer ma demande de bilan
             </button>
             <p class="form-note">Bilan 100% offert · Sans engagement · Réponse sous 24h</p>
+            <p class="form-error" id="formError" role="alert" hidden>L'envoi n'a pas abouti. Vérifie ta connexion et réessaie, ou écris directement à contact@pornicperformancelab.fr.</p>
+            <p class="form-note">Tes informations servent uniquement à organiser ton bilan. Elles ne sont jamais transmises à des tiers.</p>
           </div>
 
         </form>
@@ -356,25 +386,56 @@
   <footer>
     <div class="footer-logo">PORNIC<span>·</span>PERFORMANCE LAB</div>
     <p>Hybrid Training Pornic · Pornic, Loire-Atlantique</p>
-    <p>© 2025 — Tous droits réservés</p>
+    <p>© 2026 — Tous droits réservés</p>
   </footer>
 
   <script>
     function toggleChip(el) {
-      el.classList.toggle('selected');
+      const on = el.classList.toggle('selected');
+      el.setAttribute('aria-pressed', on);
     }
 
-    function handleSubmit(e) {
+    // Puces accessibles au clavier
+    document.querySelectorAll('.chip, .dispo-chip').forEach(el => {
+      el.setAttribute('role', 'button');
+      el.setAttribute('tabindex', '0');
+      el.setAttribute('aria-pressed', 'false');
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleChip(el); }
+      });
+    });
+
+    const selected = (form, sel) =>
+      [...form.querySelectorAll(sel + '.selected')].map(c => c.textContent.trim()).join(', ');
+
+    async function handleSubmit(e) {
       e.preventDefault();
+      const form = e.target;
       const btn = document.getElementById('submitBtn');
+      const error = document.getElementById('formError');
+      const label = btn.innerHTML;
+
+      form.elements['objectifs'].value = selected(form, '.chip');
+      form.elements['disponibilites'].value = selected(form, '.dispo-chip');
+
+      error.hidden = true;
       btn.disabled = true;
       btn.innerHTML = '<i class="ti ti-loader-2" style="animation:spin 0.8s linear infinite"></i> Envoi en cours…';
 
-      // Simulation envoi (remplacer par fetch vers ton backend ou Formspree)
-      setTimeout(() => {
+      try {
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString()
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
         document.getElementById('formWrap').style.display = 'none';
         document.getElementById('confirmation').classList.add('show');
-      }, 1400);
+      } catch (err) {
+        btn.disabled = false;
+        btn.innerHTML = label;
+        error.hidden = false;
+      }
     }
   </script>
 
@@ -382,5 +443,21 @@
     @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
   </style>
 
+
+  <script>
+    (function () {
+      const nav = document.querySelector('nav');
+      const btn = nav.querySelector('.nav-toggle');
+      btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+        btn.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      });
+      nav.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }));
+    })();
+  </script>
 </body>
 </html>

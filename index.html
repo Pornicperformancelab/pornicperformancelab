@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/tabler-icons.min.css" />
 
   <style>
     :root {
@@ -54,6 +54,7 @@
       border-bottom: 1px solid var(--border);
     }
     .nav-logo {
+      text-decoration: none;
       font-family: var(--font-sans);
       font-size: 13px; font-weight: 500;
       letter-spacing: 0.14em; text-transform: uppercase;
@@ -84,7 +85,7 @@
     .hero {
       min-height: 100vh;
       display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 0 48px 72px;
+      padding: 120px 48px 72px;
       position: relative;
       overflow: hidden;
     }
@@ -453,7 +454,7 @@
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-links { display: none; }
-      .hero { padding: 0 20px 56px; }
+      .hero { padding: 104px 20px 56px; }
       .hero-stats { flex-wrap: wrap; }
       .section-inner { padding: 64px 20px; }
       .process-grid { grid-template-columns: 1fr 1fr; }
@@ -461,21 +462,44 @@
       .offres-grid { grid-template-columns: 1fr; }
       footer { flex-direction: column; text-align: center; }
     }
+
+    /* ── MENU MOBILE ── */
+    .nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--blanc); width: 40px; height: 40px; border-radius: 6px; cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 5px; padding: 0; }
+    .nav-toggle span { display: block; width: 18px; height: 1.5px; background: currentColor; transition: transform 0.2s, opacity 0.2s; }
+    nav.open .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+    nav.open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    @media (max-width: 480px) {
+      .nav-logo { font-size: 11px !important; letter-spacing: 0.08em !important; }
+      .nav-cta { font-size: 12px !important; padding: 8px 12px !important; }
+    }
+    .nav-logo, .nav-cta { white-space: nowrap; }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    @media (max-width: 768px) {
+      .nav-toggle { display: inline-flex; }
+      nav.open .nav-links { display: flex; flex-direction: column; gap: 0; position: absolute; top: 64px; left: 0; right: 0; background: var(--noir); border-bottom: 1px solid var(--border); padding: 8px 20px 16px; }
+      nav.open .nav-links a { font-size: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); color: var(--blanc); }
+      nav.open .nav-links a:last-child { border-bottom: none; }
+    }
+    a:focus-visible, button:focus-visible, .chip:focus-visible, .dispo-chip:focus-visible { outline: 2px solid var(--rouge); outline-offset: 2px; }
   </style>
 </head>
 <body>
 
   <!-- ── NAV ── -->
-  <nav>
-    <div class="nav-logo">PORNIC<span>·</span>PERFORMANCE LAB</div>
-    <div class="nav-links">
+  <nav aria-label="Navigation principale">
+    <a href="index.html" class="nav-logo">PORNIC<span>·</span>PERFORMANCE LAB</a>
+    <div class="nav-links" id="nav-links">
       <a href="#methode">Méthode</a>
       <a href="#expertise">Expertise</a>
       <a href="#offres">Offres</a>
       <a href="tests.html">Tests</a>
-      <a href="#contact">Contact</a>
+      <a href="contact.html">Contact</a>
     </div>
-    <a href="#contact" class="nav-cta">Bilan offert</a>
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta">Bilan offert</a>
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    </div>
   </nav>
 
   <!-- ── HERO ── -->
@@ -486,13 +510,13 @@
       <h1>La performance,<br><em>construite</em><br>sur la science.</h1>
       <p class="hero-sub">Coaching haut de gamme ancré dans l'expérience du sport de haut niveau. Tests complets, programmation sur-mesure, progression mesurée à chaque étape.</p>
       <div class="hero-btns">
-        <a href="#contact" class="btn-primary">Démarrer mon onboarding</a>
+        <a href="contact.html" class="btn-primary">Réserver mon bilan offert</a>
         <a href="#methode" class="btn-ghost">Découvrir la méthode</a>
       </div>
       <div class="hero-stats">
         <div class="stat-item">
           <div class="stat-num">5</div>
-          <div class="stat-label">Diplômes universitaires</div>
+          <div class="stat-label">Diplômes · STAPS + 4 DU</div>
         </div>
         <div class="stat-item">
           <div class="stat-num">3</div>
@@ -675,14 +699,14 @@
   <section class="cta-section" id="contact">
     <h2>Prêt à t'entraîner autrement ?</h2>
     <p>Le premier bilan est offert. On analyse ton niveau, tes objectifs,<br>et on construit la suite ensemble.</p>
-    <a href="mailto:contact@pornicperformancelab.fr" class="btn-white">Réserver mon bilan offert →</a>
+    <a href="contact.html" class="btn-white">Réserver mon bilan offert →</a>
   </section>
 
   <!-- ── FOOTER ── -->
   <footer>
     <div class="footer-logo">PORNIC<span>·</span>PERFORMANCE LAB</div>
     <p>Hybrid Training Pornic · Pornic, Loire-Atlantique</p>
-    <p>© 2025 — Tous droits réservés</p>
+    <p>© 2026 — Tous droits réservés</p>
   </footer>
 
   <script>
@@ -699,5 +723,21 @@
     reveals.forEach(el => observer.observe(el));
   </script>
 
+
+  <script>
+    (function () {
+      const nav = document.querySelector('nav');
+      const btn = nav.querySelector('.nav-toggle');
+      btn.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+        btn.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      });
+      nav.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }));
+    })();
+  </script>
 </body>
 </html>
