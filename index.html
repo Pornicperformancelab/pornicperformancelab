@@ -3,546 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coach sportif &amp; préparateur physique à Pornic · Pornic Performance Lab</title>
+  <title>Coach sportif &amp; préparateur physique à Pornic · Rockett Performance</title>
   <meta name="description" content="Coach sportif privé et préparateur physique à Pornic (44) : coaching individuel en salle, bilan de performance, programme sur-mesure et suivi mesuré. Ancien athlète de haut niveau." />
   <link rel="canonical" href="https://pornicperformancelab.com/" />
   <meta property="og:url" content="https://pornicperformancelab.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
-  <meta property="og:site_name" content="Pornic Performance Lab" />
-  <meta property="og:title" content="Coach sportif &amp; préparateur physique à Pornic · Pornic Performance Lab" />
+  <meta property="og:site_name" content="Rockett Performance" />
+  <meta property="og:title" content="Coach sportif &amp; préparateur physique à Pornic · Rockett Performance" />
   <meta property="og:description" content="Coach sportif privé et préparateur physique à Pornic (44) : coaching individuel en salle, bilan de performance, programme sur-mesure et suivi mesuré. Ancien athlète de haut niveau." />
+  <meta property="og:image" content="https://pornicperformancelab.com/images/romain-mobilite.jpg" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/tabler-icons.min.css" />
-
-  <style>
-    :root {
-      --rouge: #B85C38;
-      --rouge-light: rgba(184,92,56,0.12);
-      --noir: #0c0c0c;
-      --noir-soft: #161616;
-      --blanc: #f5f2ed;
-      --gris: #888;
-      --gris-light: #444;
-      --border: rgba(255,255,255,0.08);
-      --font-serif: 'Instrument Serif', Georgia, serif;
-      --font-sans: 'DM Sans', sans-serif;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-sans);
-      background: var(--noir);
-      color: var(--blanc);
-      overflow-x: hidden;
-    }
-
-    /* ── NOISE TEXTURE ── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0; z-index: 0; pointer-events: none;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px;
-      height: 64px;
-      background: rgba(12,12,12,0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      text-decoration: none;
-      font-family: var(--font-sans);
-      font-size: 13px; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--blanc);
-    }
-    .nav-logo span { color: var(--rouge); }
-    .nav-links {
-      display: flex; gap: 32px;
-    }
-    .nav-links a {
-      font-size: 13px; color: var(--gris);
-      text-decoration: none; letter-spacing: 0.02em;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--blanc); }
-    .nav-cta {
-      font-family: var(--font-sans);
-      font-size: 13px; font-weight: 500;
-      background: var(--rouge); color: #fff;
-      border: none; padding: 9px 20px;
-      border-radius: 6px; cursor: pointer;
-      transition: opacity 0.2s;
-      text-decoration: none;
-    }
-    .nav-cta:hover { opacity: 0.85; }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 120px 48px 72px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute; inset: 0; z-index: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(184,92,56,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 20% 80%, rgba(184,92,56,0.05) 0%, transparent 50%),
-        var(--noir);
-    }
-
-    /* Grid lines déco */
-    .hero-bg::after {
-      content: '';
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 80px 80px;
-      mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
-    }
-
-    .hero-content { position: relative; z-index: 1; max-width: 700px; }
-
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--rouge);
-      border: 1px solid rgba(184,92,56,0.35);
-      padding: 6px 14px; border-radius: 4px;
-      margin-bottom: 28px;
-      opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--rouge);
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    .hero h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(40px, 6vw, 76px);
-      font-weight: 400; line-height: 1.1;
-      color: var(--blanc);
-      margin-bottom: 24px;
-      opacity: 0; animation: fadeUp 0.7s ease forwards 0.35s;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--rouge);
-    }
-
-    .hero-sub {
-      font-size: 16px; color: var(--gris);
-      max-width: 480px; line-height: 1.75;
-      margin-bottom: 36px;
-      opacity: 0; animation: fadeUp 0.7s ease forwards 0.5s;
-    }
-
-    .hero-btns {
-      display: flex; gap: 12px; flex-wrap: wrap;
-      opacity: 0; animation: fadeUp 0.7s ease forwards 0.65s;
-    }
-    .btn-primary {
-      font-family: var(--font-sans);
-      font-size: 14px; font-weight: 500;
-      background: var(--rouge); color: #fff;
-      border: none; padding: 14px 28px;
-      border-radius: 6px; cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-decoration: none; display: inline-block;
-    }
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(184,92,56,0.35);
-    }
-    .btn-ghost {
-      font-family: var(--font-sans);
-      font-size: 14px;
-      background: transparent; color: var(--blanc);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 14px 28px; border-radius: 6px; cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
-      text-decoration: none; display: inline-block;
-    }
-    .btn-ghost:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.04); }
-
-    .hero-stats {
-      display: flex; gap: 0;
-      margin-top: 64px;
-      border: 1px solid var(--border);
-      border-radius: 10px; overflow: hidden;
-      opacity: 0; animation: fadeUp 0.7s ease forwards 0.8s;
-      max-width: 680px;
-    }
-    .stat-item {
-      flex: 1; padding: 20px 24px;
-      border-right: 1px solid var(--border);
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-num {
-      font-family: var(--font-serif);
-      font-size: 30px; color: var(--blanc);
-    }
-    .stat-label {
-      font-size: 11px; color: var(--gris);
-      margin-top: 4px; text-transform: uppercase;
-      letter-spacing: 0.07em; line-height: 1.4;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── TICKER BAND ── */
-    .ticker {
-      background: var(--rouge);
-      padding: 12px 0; overflow: hidden;
-      position: relative;
-    }
-    .ticker-track {
-      display: flex; gap: 0;
-      animation: ticker 30s linear infinite;
-      width: max-content;
-    }
-    .ticker-item {
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: #fff; padding: 0 28px;
-      white-space: nowrap;
-      display: flex; align-items: center; gap: 14px;
-    }
-    .ticker-item::after {
-      content: '·';
-      color: rgba(255,255,255,0.4);
-    }
-    @keyframes ticker {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ── SECTIONS ── */
-    section { position: relative; z-index: 1; }
-
-    .section-inner {
-      max-width: 1100px; margin: 0 auto;
-      padding: 88px 48px;
-    }
-
-    .s-label {
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--rouge); margin-bottom: 12px;
-    }
-    .s-title {
-      font-family: var(--font-serif);
-      font-size: clamp(28px, 3.5vw, 44px);
-      font-weight: 400; line-height: 1.2;
-      margin-bottom: 12px;
-    }
-    .s-sub {
-      font-size: 15px; color: var(--gris);
-      max-width: 500px; line-height: 1.75;
-      margin-bottom: 48px;
-    }
-
-    /* ── MÉTHODE ── */
-    .methode { background: var(--noir-soft); }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 12px; overflow: hidden;
-    }
-    .process-card {
-      background: var(--noir-soft);
-      padding: 28px 24px;
-      transition: background 0.2s;
-    }
-    .process-card:hover { background: rgba(184,92,56,0.06); }
-    .p-num {
-      font-size: 11px; font-weight: 500;
-      color: var(--rouge); letter-spacing: 0.1em;
-      text-transform: uppercase; margin-bottom: 16px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .p-num::after {
-      content: '';
-      flex: 1; height: 1px;
-      background: rgba(184,92,56,0.25);
-    }
-    .process-card h3 {
-      font-family: var(--font-serif);
-      font-size: 19px; font-weight: 400;
-      margin-bottom: 10px;
-    }
-    .process-card p { font-size: 13px; color: var(--gris); line-height: 1.65; }
-
-    /* ── DIPLÔMES ── */
-    .diplomes { background: var(--noir); }
-
-    .diplo-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px; align-items: start;
-    }
-    .diplo-left {}
-    .diplo-right {}
-
-    .diplo-list { display: flex; flex-direction: column; gap: 2px; margin-top: 0; }
-    .diplo-item {
-      display: flex; gap: 16px; align-items: flex-start;
-      padding: 18px 20px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      transition: border-color 0.2s, background 0.2s;
-      cursor: default;
-    }
-    .diplo-item:hover {
-      border-color: rgba(184,92,56,0.3);
-      background: var(--rouge-light);
-    }
-    .diplo-icon {
-      width: 38px; height: 38px; flex-shrink: 0;
-      border-radius: 8px;
-      background: var(--rouge-light);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--rouge); font-size: 18px;
-    }
-    .diplo-item h4 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
-    .diplo-item p { font-size: 12px; color: var(--gris); line-height: 1.5; }
-
-    .parcours-list { display: flex; flex-direction: column; gap: 16px; }
-    .parcours-card {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 22px 24px;
-      position: relative; overflow: hidden;
-      transition: border-color 0.2s;
-    }
-    .parcours-card:hover { border-color: rgba(184,92,56,0.3); }
-    .parcours-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0;
-      width: 3px; height: 100%;
-      background: var(--rouge);
-    }
-    .parcours-sport {
-      font-size: 11px; font-weight: 500;
-      color: var(--rouge); text-transform: uppercase;
-      letter-spacing: 0.1em; margin-bottom: 6px;
-    }
-    .parcours-card h4 {
-      font-family: var(--font-serif);
-      font-size: 17px; font-weight: 400;
-      margin-bottom: 6px;
-    }
-    .parcours-card p { font-size: 13px; color: var(--gris); line-height: 1.6; }
-
-    /* ── OFFRES ── */
-    .offres { background: var(--noir-soft); }
-
-    .offres-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .offre-card {
-      border: 1px solid var(--border);
-      border-radius: 12px; padding: 28px;
-      position: relative;
-      transition: border-color 0.2s;
-    }
-    .offre-card:hover { border-color: rgba(255,255,255,0.15); }
-    .offre-card.featured {
-      border-color: rgba(184,92,56,0.45);
-      background: rgba(184,92,56,0.04);
-    }
-    .offre-badge {
-      display: inline-block;
-      font-size: 10px; font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      background: var(--rouge); color: #fff;
-      padding: 4px 12px; border-radius: 4px;
-      margin-bottom: 16px;
-    }
-    .offre-card h3 {
-      font-family: var(--font-serif);
-      font-size: 22px; font-weight: 400;
-      margin-bottom: 8px;
-    }
-    .offre-desc { font-size: 14px; color: var(--gris); line-height: 1.65; margin-bottom: 20px; }
-    .offre-items { list-style: none; display: flex; flex-direction: column; gap: 0; }
-    .offre-items li {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 13px; color: #bbb;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .offre-items li:last-child { border-bottom: none; }
-    .offre-items li i { color: var(--rouge); margin-top: 1px; flex-shrink: 0; }
-    .offre-lieu {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 12px; color: var(--gris);
-      border: 1px solid var(--border);
-      padding: 5px 12px; border-radius: 4px;
-      margin-top: 20px;
-    }
-
-    /* ── CTA ── */
-    .cta-section {
-      background: var(--rouge);
-      padding: 88px 48px;
-      text-align: center;
-    }
-    .cta-section h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(28px, 4vw, 52px);
-      font-weight: 400; color: #fff;
-      margin-bottom: 14px;
-    }
-    .cta-section p { font-size: 16px; color: rgba(255,255,255,0.75); margin-bottom: 36px; }
-    .btn-white {
-      font-family: var(--font-sans);
-      font-size: 14px; font-weight: 500;
-      background: #fff; color: var(--rouge);
-      border: none; padding: 14px 32px;
-      border-radius: 6px; cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-      text-decoration: none; display: inline-block;
-    }
-    .btn-white:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.25);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--noir);
-      border-top: 1px solid var(--border);
-      padding: 32px 48px;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 12px;
-    }
-    .footer-logo { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
-    .footer-logo span { color: var(--rouge); }
-    footer p { font-size: 12px; color: var(--gris-light); }
-
-    /* ── SCROLL REVEAL ── */
-    .reveal {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    .offre-prix { font-family: var(--font-serif); font-size: 36px; line-height: 1; margin: 4px 0 14px; color: var(--blanc); }
-    .offre-prix span { font-family: var(--font-sans); font-size: 13px; color: var(--gris); margin-left: 6px; }
-    .tarifs-annexes { margin-top: 16px; border: 1px solid var(--border); border-radius: 12px; padding: 4px 28px; }
-    .tarif-ligne { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--border); }
-    .tarif-ligne:last-child { border-bottom: none; }
-    .tarif-ligne strong { display: block; font-weight: 500; font-size: 15px; margin-bottom: 3px; }
-    .tarif-ligne span { font-size: 13px; color: var(--gris); line-height: 1.5; }
-    .tarif-prix { font-family: var(--font-serif); font-size: 26px; white-space: nowrap; }
-    .offres-notes { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
-    .offres-notes p { font-size: 13px; color: var(--gris); line-height: 1.6; display: flex; gap: 8px; align-items: flex-start; }
-    .offres-notes i { color: var(--rouge); margin-top: 3px; }
-    .offres-notes strong { color: #bbb; font-weight: 500; }
-    .hero-photo {
-      position: absolute; right: 3vw; bottom: 0; z-index: 0;
-      height: min(86vh, 860px); width: auto;
-      -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
-      mask-image: linear-gradient(to bottom, #000 78%, transparent 100%);
-      opacity: 0; animation: fadeIn 1s ease forwards 0.4s;
-      pointer-events: none; user-select: none;
-    }
-    @keyframes fadeIn { to { opacity: 1; } }
-    .lien-exemple { display: inline-flex; align-items: center; gap: 8px; margin-top: 32px; font-size: 14px; color: var(--rouge); text-decoration: none; border-bottom: 1px solid rgba(184,92,56,0.4); padding-bottom: 3px; }
-    .lien-exemple:hover { color: var(--blanc); }
-    .coach { background: var(--noir); }
-    .coach-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; }
-    .coach-photo { position: relative; aspect-ratio: 4 / 5; max-width: 460px; width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); background: #000; }
-    .coach-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
-    .coach-lead { font-family: var(--font-serif); font-size: clamp(20px, 2.2vw, 26px); line-height: 1.4; color: var(--blanc); margin: 8px 0 18px; }
-    .coach-p { font-size: 15px; color: var(--gris); line-height: 1.8; margin-bottom: 14px; max-width: 560px; }
-    .presse-section { background: var(--noir-soft); overflow: hidden; }
-    .presse-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: start; padding: 8px 0 12px; }
-    .coupure { margin: 0; }
-    .coupure img { display: block; width: 100%; height: auto; border-radius: 3px; box-shadow: 0 24px 50px rgba(0,0,0,0.55), 0 2px 6px rgba(0,0,0,0.4); transition: transform 0.3s; }
-    .coupure a:hover img { transform: scale(1.01); }
-    .coupure figcaption { margin-top: 18px; font-size: 12px; color: var(--gris); letter-spacing: 0.03em; }
-    .coupure figcaption a { color: var(--rouge); text-decoration: none; }
-    @media (max-width: 1100px) { .hero-photo { height: min(70vh, 640px); right: 0; opacity: 0.35 !important; animation: none; } }
-    @media (max-width: 900px) {
-      .hero-photo { display: none; }
-      .coach-grid { grid-template-columns: 1fr; gap: 24px; }
-      .presse-grid { grid-template-columns: 1fr; gap: 32px; }
-      .coach-photo { max-width: 340px; margin: 0 auto; }
-    }
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1000px) and (min-width: 769px) {
-      .offres-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      .hero { padding: 104px 20px 56px; }
-      .hero-stats { flex-wrap: wrap; }
-      .section-inner { padding: 64px 20px; }
-      .process-grid { grid-template-columns: 1fr 1fr; }
-      .diplo-layout { grid-template-columns: 1fr; }
-      .offres-grid { grid-template-columns: 1fr; }
-      .tarifs-annexes { padding: 4px 20px; }
-      footer { flex-direction: column; text-align: center; }
-    }
-
-    /* ── MENU MOBILE ── */
-    .nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--blanc); width: 40px; height: 40px; border-radius: 6px; cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 5px; padding: 0; }
-    .nav-toggle span { display: block; width: 18px; height: 1.5px; background: currentColor; transition: transform 0.2s, opacity 0.2s; }
-    nav.open .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
-    nav.open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    @media (max-width: 480px) {
-      .nav-logo { font-size: 11px !important; letter-spacing: 0.08em !important; }
-      .nav-cta { font-size: 12px !important; padding: 8px 12px !important; }
-    }
-    .nav-logo, .nav-cta { white-space: nowrap; }
-    .nav-right { display: flex; align-items: center; gap: 10px; }
-    @media (max-width: 768px) {
-      .nav-toggle { display: inline-flex; }
-      nav.open .nav-links { display: flex; flex-direction: column; gap: 0; position: absolute; top: 64px; left: 0; right: 0; background: var(--noir); border-bottom: 1px solid var(--border); padding: 8px 20px 16px; }
-      nav.open .nav-links a { font-size: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); color: var(--blanc); }
-      nav.open .nav-links a:last-child { border-bottom: none; }
-    }
-    a:focus-visible, button:focus-visible, .chip:focus-visible, .dispo-chip:focus-visible { outline: 2px solid var(--rouge); outline-offset: 2px; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,400..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="assets/site.js" defer></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SportsActivityLocation",
-  "name": "Pornic Performance Lab",
+  "name": "Rockett Performance",
   "url": "https://pornicperformancelab.com/",
+  "telephone": "+33 6 76 59 80 08",
   "description": "Coach sportif privé et préparateur physique à Pornic : coaching individuel en salle, bilan de performance complet, programmation sur-mesure, nutrition et préparation mentale.",
   "email": "pornicperformancelab@gmail.com",
   "address": {
@@ -570,339 +54,375 @@
     "Nutrition du sportif",
     "Préparation mentale"
   ],
-  "image": "https://pornicperformancelab.com/images/romain-course.webp",
+  "image": "https://pornicperformancelab.com/images/romain-mobilite.jpg",
   "founder": {
     "@type": "Person",
     "name": "Romain Ooghe",
     "jobTitle": "Coach sportif et préparateur physique",
     "image": "https://pornicperformancelab.com/images/romain-mobilite.jpg"
-  }
+  },
+  "alternateName": "Rockett Performance par Romain Ooghe"
 }
   </script>
 </head>
 <body>
 
-  <!-- ── NAV ── -->
-  <nav aria-label="Navigation principale">
-    <a href="index.html" class="nav-logo">PORNIC<span>·</span>PERFORMANCE LAB</a>
-    <div class="nav-links" id="nav-links">
-      <a href="#methode">Méthode</a>
-      <a href="#expertise">Expertise</a>
-      <a href="#offres">Offres</a>
-      <a href="exemples.html">Exemples</a>
-      <a href="tests.html">Tests</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="nav-right">
-      <a href="contact.html" class="nav-cta">Réserver</a>
-      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
-    </div>
-  </nav>
+  <svg hidden xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12l5 5l10 -10"/></symbol>
+  </svg>
 
-  <!-- ── HERO ── -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <img class="hero-photo" src="images/romain-course.webp" alt="Romain Ooghe, préparateur physique à Pornic" width="741" height="1300" fetchpriority="high">
-    <div class="hero-content">
-      <div class="hero-eyebrow">Coach sportif &amp; préparateur physique · Pornic</div>
-      <h1>La performance,<br><em>construite</em><br>sur la science.</h1>
-      <p class="hero-sub">Coach sportif privé et préparateur physique à Pornic et dans le Pays de Retz. Un coaching individuel haut de gamme ancré dans l'expérience du sport de haut niveau. Tests complets, programmation sur-mesure, progression mesurée à chaque étape.</p>
-      <div class="hero-btns">
-        <a href="contact.html" class="btn-primary">Réserver mon bilan</a>
-        <a href="#methode" class="btn-ghost">Découvrir la méthode</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-num">5</div>
-          <div class="stat-label">Diplômes · STAPS + 4 DU</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">3</div>
-          <div class="stat-label">Sports de haut niveau</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Sur-mesure</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">360°</div>
-          <div class="stat-label">Physique · Nutrition · Mental</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <a href="#contenu" class="skip">Aller au contenu</a>
 
-  <!-- ── TICKER ── -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span class="ticker-item">Football Américain · Pôle France d'Amiens</span>
-      <span class="ticker-item">London Blitz · Championnat d'Europe</span>
-      <span class="ticker-item">Bobsleigh · Équipe de France</span>
-      <span class="ticker-item">CrossFit Pornic · 2019–2023</span>
-      <span class="ticker-item">Prof Prépa Mentale · EDNH Nantes</span>
-      <span class="ticker-item">Licence STAPS · 4 Diplômes Universitaires</span>
-      <span class="ticker-item">Football Américain · Pôle France d'Amiens</span>
-      <span class="ticker-item">London Blitz · Championnat d'Europe</span>
-      <span class="ticker-item">Bobsleigh · Équipe de France</span>
-      <span class="ticker-item">CrossFit Pornic · 2019–2023</span>
-      <span class="ticker-item">Prof Prépa Mentale · EDNH Nantes</span>
-      <span class="ticker-item">Licence STAPS · 4 Diplômes Universitaires</span>
-    </div>
+  <div class="topbar">
+    <span class="topbar__q">Une question ? </span>Appelez-moi&nbsp;: <a href="tel:+33676598008" class="topbar__tel">06&nbsp;76&nbsp;59&nbsp;80&nbsp;08</a><span class="topbar__sep" aria-hidden="true">·</span><a href="https://wa.me/33676598008" class="topbar__wa" target="_blank" rel="noopener">WhatsApp</a>
   </div>
 
-  <!-- ── COACH ── -->
-  <section class="coach" id="coach">
-    <div class="section-inner coach-grid">
-      <div class="coach-photo reveal">
-        <img src="images/romain-mobilite.jpg" alt="Romain Ooghe pendant une séance de mobilité" width="1080" height="1350" loading="lazy">
-      </div>
-      <div class="coach-text">
-        <p class="s-label reveal">Ton coach</p>
-        <h2 class="s-title reveal">Romain Ooghe</h2>
-        <p class="coach-lead reveal">Avant d'entraîner les autres, j'ai passé des années à chercher mes propres limites.</p>
-        <p class="coach-p reveal">Football américain au Pôle France d'Amiens puis avec les London Blitz, bobsleigh en Coupe d'Europe comme pousseur avec une équipe française qui visait les JO de Pékin 2022, puis quatre ans à la tête de CrossFit Pornic : l'exigence du haut niveau, je l'ai vécue de l'intérieur.</p>
-        <p class="coach-p reveal">Aujourd'hui coach sportif à Pornic, je mets cette expérience et ma formation universitaire (STAPS et 4 diplômes universitaires) au service des sportifs de tous niveaux, à Pornic Hybrid Training. Ma règle est simple : rien n'est programmé sans avoir été mesuré.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── PRESSE ── -->
-  <section class="presse-section" id="presse">
-    <div class="section-inner">
-      <p class="s-label reveal">Dans la presse</p>
-      <h2 class="s-title reveal">Un Pornicais sur la glace.</h2>
-      <p class="s-sub reveal">De la piste d'athlétisme du Val-Saint-Martin à la Coupe d'Europe de bobsleigh : un parcours suivi par les médias locaux en 2021.</p>
-      <div class="presse-grid reveal">
-        <figure class="coupure coupure-a">
-          <a href="images/presse-pays-de-retz.jpg" target="_blank" rel="noopener"><img src="images/presse-pays-de-retz.jpg" alt="Article de presse régionale, page Pays de Retz : Un Pornicais vise les JO 2022 en bobsleigh" width="1772" height="2036" loading="lazy"></a>
-          <figcaption>Presse régionale · page Pays de Retz · décembre 2021</figcaption>
-        </figure>
-        <figure class="coupure coupure-b">
-          <a href="https://www.francebleu.fr/infos/insolite/apres-rasta-rockett-pornic-rockett-romain-qualifie-pour-la-coupe-d-europe-de-bobsleigh-1635520520" target="_blank" rel="noopener"><img src="images/presse-france-bleu.jpg" alt="Article France Bleu Loire Océan : Après Rasta Rockett, Pornic Rockett, Romain qualifié pour la coupe d'Europe de bobsleigh" width="1125" height="1565" loading="lazy"></a>
-          <figcaption>France Bleu Loire Océan · 12 novembre 2021 · <a href="https://www.francebleu.fr/infos/insolite/apres-rasta-rockett-pornic-rockett-romain-qualifie-pour-la-coupe-d-europe-de-bobsleigh-1635520520" target="_blank" rel="noopener">Lire l'article <i class="ti ti-external-link"></i></a></figcaption>
-        </figure>
+  <header class="nav">
+    <div class="nav__in">
+      <a href="index.html" class="nav__logo" aria-label="Rockett Performance, accueil">Rockett <b>Performance</b></a>
+      <nav aria-label="Navigation principale">
+        <ul class="nav__links" id="nav-links">
+          <li><a href="methode.html">Méthode</a></li>
+          <li><a href="tests.html">Bilan</a></li>
+          <li><a href="clubs.html">Clubs</a></li>
+          <li><a href="exemples.html">Exemples</a></li>
+          <li><a href="index.html#tarifs">Tarifs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav__right">
+        <a href="contact.html" class="btn btn--red btn--sm nav__cta">Réserver</a>
+        <button class="nav__toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
       </div>
     </div>
-  </section>
+    <div class="nav__progress"></div>
+  </header>
 
-  <!-- ── MÉTHODE ── -->
-  <section class="methode" id="methode">
-    <div class="section-inner">
-      <p class="s-label reveal">La méthode</p>
-      <h2 class="s-title reveal">Un coaching structuré,<br>pas improvisé.</h2>
-      <p class="s-sub reveal">Chaque parcours commence par une analyse complète et se construit autour de données réelles — pas d'intuitions.</p>
+  <main id="contenu">
 
-      <div class="process-grid reveal">
-        <div class="process-card">
-          <div class="p-num">01</div>
-          <h3>Bilan complet</h3>
-          <p>Tests sur l'ensemble des qualités physiques : force, endurance, vitesse, souplesse, coordination, composition corporelle et profil mental.</p>
-        </div>
-        <div class="process-card">
-          <div class="p-num">02</div>
-          <h3>Plan sur-mesure</h3>
-          <p>Une programmation spécifique construite autour de tes objectifs et des résultats aux tests. Chaque séance a une raison d'être.</p>
-        </div>
-        <div class="process-card">
-          <div class="p-num">03</div>
-          <h3>Tests réguliers</h3>
-          <p>La progression est mesurée, documentée, visible. Pas de doutes sur l'avancement — les chiffres parlent d'eux-mêmes.</p>
-        </div>
-        <div class="process-card">
-          <div class="p-num">04</div>
-          <h3>Adaptabilité</h3>
-          <p>Le programme évolue en continu selon ta vie, ton corps et tes retours. Ajustements possibles à tout moment.</p>
-        </div>
-      </div>
-      <a href="exemples.html" class="lien-exemple reveal">Voir un exemple réel de périodisation <i class="ti ti-arrow-right"></i></a>
-    </div>
-  </section>
-
-  <!-- ── DIPLÔMES + PARCOURS ── -->
-  <section class="diplomes" id="expertise">
-    <div class="section-inner">
-      <p class="s-label reveal">Expertise</p>
-      <h2 class="s-title reveal">Science &amp; terrain.<br>Les deux.</h2>
-      <p class="s-sub reveal">Une formation universitaire de haut niveau et un vécu de sportif professionnel — une combinaison rare dans le monde du coaching.</p>
-
-      <div class="diplo-layout">
-        <!-- Diplômes -->
-        <div class="diplo-left reveal">
-          <div class="diplo-list">
-            <div class="diplo-item">
-              <div class="diplo-icon"><i class="ti ti-school"></i></div>
-              <div>
-                <h4>Licence STAPS</h4>
-                <p>Sciences et Techniques des Activités Physiques et Sportives</p>
-              </div>
-            </div>
-            <div class="diplo-item">
-              <div class="diplo-icon"><i class="ti ti-barbell"></i></div>
-              <div>
-                <h4>DU Préparation physique &amp; réathlétisation</h4>
-                <p>Planification, prévention et retour à la performance après blessure</p>
-              </div>
-            </div>
-            <div class="diplo-item">
-              <div class="diplo-icon"><i class="ti ti-salad"></i></div>
-              <div>
-                <h4>DU Nutrition &amp; micro-nutrition du sportif</h4>
-                <p>Optimisation des apports pour la performance et la récupération</p>
-              </div>
-            </div>
-            <div class="diplo-item">
-              <div class="diplo-icon"><i class="ti ti-chart-line"></i></div>
-              <div>
-                <h4>DU Ingénierie de la Haute Performance Sportive</h4>
-                <p>Méthodologie et planification de l'entraînement à haut niveau</p>
-              </div>
-            </div>
-            <div class="diplo-item">
-              <div class="diplo-icon"><i class="ti ti-brain"></i></div>
-              <div>
-                <h4>DU Préparation mentale</h4>
-                <p>Gestion du stress, confiance, focus et routines de performance · Prof à l'EDNH Nantes</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Parcours athlétique -->
-        <div class="diplo-right reveal">
-          <div class="parcours-list">
-            <div class="parcours-card">
-              <div class="parcours-sport">Football Américain</div>
-              <h4>Pôle France d'Amiens &amp; London Blitz</h4>
-              <p>Sélectionné au Pôle France d'Amiens puis évolution vers le championnat d'Europe avec les London Blitz. Exigences physiques et tactiques au plus haut niveau national et européen.</p>
-            </div>
-            <div class="parcours-card">
-              <div class="parcours-sport">Bobsleigh</div>
-              <h4>Représentant de la France</h4>
-              <p>Pousseur en Coupe d'Europe 2021-2022 (Lillehammer, Altenberg) avec une équipe française en lice pour les JO de Pékin. Démarrage explosif, puissance maximale en accélération et coordination à la milliseconde.</p>
-            </div>
-            <div class="parcours-card">
-              <div class="parcours-sport">CrossFit</div>
-              <h4>Gérant CrossFit Pornic · 2019–2023</h4>
-              <p>Direction, programmation et coaching d'une box CrossFit pendant 4 ans. Entraînement fonctionnel, gestion d'athlètes de tous niveaux, culture de la performance.</p>
-            </div>
+    <!-- Hero : affiche -->
+    <section class="hero" aria-labelledby="mantra">
+      <div class="wrap hero__main">
+        <p class="kicker">Coach sportif et préparateur physique à Pornic</p>
+        <h1 class="mantra" id="mantra"><span>Mesurer<i>.</i></span><span>Programmer<i>.</i></span><span>Progresser<i>.</i></span></h1>
+        <img class="hero__photo" src="images/romain-course.webp" alt="Romain Ooghe, coach sportif, en course" width="741" height="1300" fetchpriority="high">
+        <div class="hero__copy">
+          <p class="hero__lead">La performance, construite sur la science.</p>
+          <p>Coach sportif privé et préparateur physique à Pornic et dans le Pays de Retz. Un coaching individuel ancré dans l'expérience du sport de haut niveau. Tests complets, programmation sur-mesure, progression mesurée à chaque étape.</p>
+          <div class="btn-row">
+            <a href="contact.html" class="btn btn--red btn--lg">Réserver mon bilan <span class="btn__tag">90 €</span></a>
+            <a href="methode.html" class="btn btn--ghost btn--lg">Découvrir la méthode</a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ── OFFRES ── -->
-  <section class="offres" id="offres">
-    <div class="section-inner">
-      <p class="s-label reveal">Offres &amp; tarifs</p>
-      <h2 class="s-title reveal">Un suivi,<br>une exigence.</h2>
-      <p class="s-sub reveal">Que tu sois sportif amateur ou compétiteur, la rigueur de la méthode reste identique. Tout commence par un bilan de performance.</p>
-
-      <div class="offres-grid reveal">
-        <div class="offre-card">
-          <h3>Suivi Essentiel</h3>
-          <div class="offre-prix">220 €<span>/ mois</span></div>
-          <p class="offre-desc">Une séance encadrée par semaine, et un programme précis pour tes séances en autonomie.</p>
-          <ul class="offre-items">
-            <li><i class="ti ti-check"></i>1 séance coachée par semaine</li>
-            <li><i class="ti ti-check"></i>Programme sur-mesure pour tes séances en autonomie</li>
-            <li><i class="ti ti-check"></i>Retests toutes les 6 à 8 semaines</li>
-            <li><i class="ti ti-check"></i>Ajustements selon tes résultats</li>
-          </ul>
-        </div>
-
-        <div class="offre-card featured">
-          <div class="offre-badge">Recommandé</div>
-          <h3>Suivi Performance</h3>
-          <div class="offre-prix">390 €<span>/ mois</span></div>
-          <p class="offre-desc">L'accompagnement complet, pour progresser vite et sans approximation.</p>
-          <ul class="offre-items">
-            <li><i class="ti ti-check"></i>2 séances coachées par semaine</li>
-            <li><i class="ti ti-check"></i>Programme sur-mesure pour tes séances en autonomie</li>
-            <li><i class="ti ti-check"></i>Retests toutes les 6 à 8 semaines</li>
-            <li><i class="ti ti-check"></i>Suivi par messages entre les séances</li>
-            <li><i class="ti ti-check"></i>Conseils nutrition et préparation mentale</li>
-          </ul>
-        </div>
-
-        <div class="offre-card">
-          <h3>Préparation spécifique</h3>
-          <div class="offre-prix">790 €<span>/ 12 semaines</span></div>
-          <p class="offre-desc">Compétition, HYROX, concours pompier ou armée, retour après blessure.</p>
-          <ul class="offre-items">
-            <li><i class="ti ti-check"></i>Bilan de performance inclus</li>
-            <li><i class="ti ti-check"></i>12 séances coachées</li>
-            <li><i class="ti ti-check"></i>Périodisation complète jusqu'à l'échéance</li>
-            <li><i class="ti ti-check"></i>Retests et protocole de réathlétisation si besoin</li>
-          </ul>
-        </div>
+      <div class="wrap hero__proof">
+        <ul class="facts facts--stats">
+          <li><b>5</b><span>Diplômes, STAPS + 4 DU</span></li>
+          <li><b>3</b><span>Sports de haut niveau</span></li>
+          <li><b>100 %</b><span>Sur-mesure</span></li>
+          <li><b>360°</b><span>Physique, nutrition, mental</span></li>
+        </ul>
       </div>
+    </section>
 
-      <div class="tarifs-annexes reveal">
-        <div class="tarif-ligne">
-          <div><strong>Bilan de performance</strong><span>90 min de tests + rapport personnalisé · déduit du premier mois si tu t'engages sur un suivi</span></div>
-          <div class="tarif-prix">90 €</div>
-        </div>
-        <div class="tarif-ligne">
-          <div><strong>Séance à l'unité</strong><span>1 h de coaching sur-mesure</span></div>
-          <div class="tarif-prix">60 €</div>
-        </div>
-        <div class="tarif-ligne">
-          <div><strong>Duo</strong><span>1 séance à deux · soit 40 € par personne</span></div>
-          <div class="tarif-prix">80 €</div>
-        </div>
-      </div>
-
-      <div class="offres-notes reveal">
-        <p><i class="ti ti-map-pin"></i><span>Séances à Pornic Hybrid Training, 1 Rue du Chaudron. <strong>Accès à la salle inclus</strong> : aucun abonnement ni droit d'entrée à prévoir. À domicile uniquement si le matériel disponible est suffisant.</span></p>
-        <p><i class="ti ti-calendar"></i><span>Suivis mensuels : engagement minimum de 3 mois.</span></p>
+    <!-- Bandeau défilant -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span class="ticker__item">Football américain, Pôle France d'Amiens</span>
+        <span class="ticker__item">London Blitz, Championnat d'Europe</span>
+        <span class="ticker__item">Bobsleigh, Équipe de France</span>
+        <span class="ticker__item">CrossFit Pornic, 2019–2023</span>
+        <span class="ticker__item">Prof prépa mentale, EDNH Nantes</span>
+        <span class="ticker__item">Licence STAPS, 4 diplômes universitaires</span>
+        <span class="ticker__item ticker__dup">Football américain, Pôle France d'Amiens</span>
+        <span class="ticker__item ticker__dup">London Blitz, Championnat d'Europe</span>
+        <span class="ticker__item ticker__dup">Bobsleigh, Équipe de France</span>
+        <span class="ticker__item ticker__dup">CrossFit Pornic, 2019–2023</span>
+        <span class="ticker__item ticker__dup">Prof prépa mentale, EDNH Nantes</span>
+        <span class="ticker__item ticker__dup">Licence STAPS, 4 diplômes universitaires</span>
       </div>
     </div>
-  </section>
 
-  <!-- ── CTA ── -->
-  <section class="cta-section" id="contact">
-    <h2>Prêt à t'entraîner autrement ?</h2>
-    <p>Tout commence par le bilan. On analyse ton niveau, tes objectifs,<br>et on construit la suite ensemble.</p>
-    <a href="contact.html" class="btn-white">Réserver mon bilan →</a>
-  </section>
+    <!-- Pour qui -->
+    <section class="section" id="pour-qui">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">C'est pour vous si…</h2>
+          <p class="lead">Sportif amateur ou compétiteur, la méthode est la même : on mesure d'abord, on programme ensuite.</p>
+        </div>
+        <ul class="who">
+          <li>
+            <h3>Vous reprenez le sport</h3>
+            <p>Après une pause, sans savoir par où commencer. Le bilan dit précisément où vous en êtes, et le programme repart de là, sans vous blesser.</p>
+          </li>
+          <li>
+            <h3>Vous préparez une échéance</h3>
+            <p>Compétition, HYROX, concours pompier ou armée : une périodisation complète jusqu'à la date, avec des retests pour vérifier que vous arrivez prêt.</p>
+          </li>
+          <li>
+            <h3>Vous revenez de blessure</h3>
+            <p>Réathlétisation encadrée : screening de mobilité, charge progressive et protocole correctif pour revenir plus solide qu'avant.</p>
+          </li>
+          <li>
+            <h3>Vous voulez franchir un cap</h3>
+            <p>Vous vous entraînez déjà, mais vous stagnez. Les tests révèlent la lacune qui vous freine, et elle devient la priorité du programme.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-  <!-- ── FOOTER ── -->
-  <footer>
-    <div class="footer-logo">PORNIC<span>·</span>PERFORMANCE LAB</div>
-    <p>Pornic Hybrid Training · 1 Rue du Chaudron, 44210 Pornic</p>
-    <p>© 2026 — Tous droits réservés</p>
+    <!-- Méthode -->
+    <section class="section section--paper-2" id="methode">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">Un coaching structuré, pas improvisé</h2>
+          <p class="lead">Chaque parcours commence par une analyse complète et se construit autour de données réelles — pas d'intuitions.</p>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num" aria-hidden="true">1</span>
+            <h3>Bilan complet</h3>
+            <span class="step__meta">90 minutes, 90 €, déduits du premier mois</span>
+            <p>Tests sur l'ensemble des qualités physiques : force, endurance, vitesse, souplesse, coordination, composition corporelle et profil mental.</p>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">2</span>
+            <h3>Plan sur-mesure</h3>
+            <span class="step__meta">Livré sous 48 h</span>
+            <p>Une programmation spécifique construite autour de vos objectifs et des résultats aux tests. Chaque séance a une raison d'être.</p>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">3</span>
+            <h3>Tests réguliers</h3>
+            <span class="step__meta">Toutes les 6 à 8 semaines</span>
+            <p>La progression est mesurée, documentée, visible. Pas de doutes sur l'avancement — les chiffres parlent d'eux-mêmes.</p>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">4</span>
+            <h3>Adaptabilité</h3>
+            <span class="step__meta">Ajustements à tout moment</span>
+            <p>Le programme évolue en continu selon votre vie, votre corps et vos retours. Ajustements possibles à tout moment.</p>
+          </li>
+        </ol>
+        <div class="btn-row mt-3">
+          <a href="methode.html" class="btn btn--black">La méthode en détail</a>
+          <a href="exemples.html" class="btn btn--ghost">Voir un exemple réel de périodisation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Le coach -->
+    <section class="section section--black" id="coach">
+      <div class="wrap coach">
+        <img class="coach__photo" src="images/romain-mobilite.jpg" alt="Romain Ooghe pendant une séance de mobilité" width="1080" height="1350" loading="lazy" decoding="async">
+        <div class="coach__text">
+          <p class="kicker">Votre coach</p>
+          <h2 class="section-title">Romain Ooghe</h2>
+          <p class="lead">Avant d'entraîner les autres, j'ai passé des années à chercher mes propres limites.</p>
+          <p>Football américain au Pôle France d'Amiens puis avec les London Blitz, bobsleigh en Coupe d'Europe comme pousseur avec une équipe française qui visait les JO de Pékin 2022, puis quatre ans à la tête de CrossFit Pornic : l'exigence du haut niveau, je l'ai vécue de l'intérieur.</p>
+          <p>Aujourd'hui coach sportif à Pornic, je mets cette expérience et ma formation universitaire (STAPS et 4 diplômes universitaires) au service des sportifs de tous niveaux, à Pornic Hybrid Training. Ma règle est simple : rien n'est programmé sans avoir été mesuré.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise -->
+    <section class="section" id="expertise">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">Science &amp; terrain. Les deux.</h2>
+          <p class="lead">Une formation universitaire de haut niveau et un vécu de sportif professionnel — une combinaison rare dans le monde du coaching.</p>
+        </div>
+        <div class="grid-2">
+          <div>
+            <h3 class="expertise__title">Formation</h3>
+            <ul class="board">
+              <li><h4>Licence STAPS</h4><p>Sciences et Techniques des Activités Physiques et Sportives</p></li>
+              <li><h4>DU Préparation physique &amp; réathlétisation</h4><p>Planification, prévention et retour à la performance après blessure</p></li>
+              <li><h4>DU Nutrition &amp; micro-nutrition du sportif</h4><p>Optimisation des apports pour la performance et la récupération</p></li>
+              <li><h4>DU Ingénierie de la Haute Performance Sportive</h4><p>Méthodologie et planification de l'entraînement à haut niveau</p></li>
+              <li><h4>DU Préparation mentale</h4><p>Gestion du stress, confiance, focus et routines de performance. Prof à l'EDNH Nantes.</p></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="expertise__title">Parcours athlétique</h3>
+            <ul class="board">
+              <li>
+                <span class="label">Football américain</span>
+                <h4>Pôle France d'Amiens &amp; London Blitz</h4>
+                <p>Sélectionné au Pôle France d'Amiens puis évolution vers le championnat d'Europe avec les London Blitz. Exigences physiques et tactiques au plus haut niveau national et européen.</p>
+              </li>
+              <li>
+                <span class="label">Bobsleigh</span>
+                <h4>Représentant de la France</h4>
+                <p>Pousseur en Coupe d'Europe 2021-2022 (Lillehammer, Altenberg) avec une équipe française en lice pour les JO de Pékin. Démarrage explosif, puissance maximale en accélération et coordination à la milliseconde.</p>
+              </li>
+              <li>
+                <span class="label">CrossFit</span>
+                <h4>Gérant CrossFit Pornic, 2019–2023</h4>
+                <p>Direction, programmation et coaching d'une box CrossFit pendant 4 ans. Entraînement fonctionnel, gestion d'athlètes de tous niveaux, culture de la performance.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presse -->
+    <section class="section section--paper-2" id="presse">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">Un Pornicais sur la glace</h2>
+          <p class="lead">De la piste d'athlétisme du Val-Saint-Martin à la Coupe d'Europe de bobsleigh : un parcours suivi par les médias locaux en 2021.</p>
+        </div>
+        <div class="press">
+          <blockquote class="press__quote">
+            « Après Rasta Rockett, Pornic Rockett »
+            <small>France Bleu Loire Océan, novembre 2021, au sujet de la qualification de Romain en Coupe d'Europe de bobsleigh.</small>
+          </blockquote>
+          <div class="press__clips">
+            <figure class="clip">
+              <a href="images/presse-pays-de-retz.jpg" target="_blank" rel="noopener"><img src="images/presse-pays-de-retz.jpg" alt="Coupure de presse, page Pays de Retz : Un Pornicais vise les JO 2022 en bobsleigh" width="1772" height="2036" loading="lazy" decoding="async"></a>
+              <figcaption>Presse régionale, page Pays de Retz, décembre 2021</figcaption>
+            </figure>
+            <figure class="clip">
+              <a href="https://www.francebleu.fr/infos/insolite/apres-rasta-rockett-pornic-rockett-romain-qualifie-pour-la-coupe-d-europe-de-bobsleigh-1635520520" target="_blank" rel="noopener"><img src="images/presse-france-bleu.jpg" alt="Titre de l'article France Bleu : Après Rasta Rockett, Pornic Rockett, Romain qualifié pour la coupe d'Europe de bobsleigh" width="1125" height="1565" loading="lazy" decoding="async"></a>
+              <figcaption>France Bleu Loire Océan, 12 novembre 2021. <a href="https://www.francebleu.fr/infos/insolite/apres-rasta-rockett-pornic-rockett-romain-qualifie-pour-la-coupe-d-europe-de-bobsleigh-1635520520" target="_blank" rel="noopener">Lire l'article</a></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tarifs -->
+    <section class="section" id="tarifs">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">Un suivi, une exigence</h2>
+          <p class="lead">Que vous soyez sportif amateur ou compétiteur, la rigueur de la méthode reste identique. Tout commence par un bilan de performance.</p>
+        </div>
+
+        <div class="bilan-box">
+          <div class="bilan-box__side">
+            <div class="price price--xl"><span class="num">90 €</span><span>90 minutes de tests</span></div>
+            <h3>Bilan de performance</h3>
+            <a href="contact.html" class="btn btn--red btn--lg">Réserver mon bilan</a>
+          </div>
+          <ul class="checks">
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Tests sur toutes les qualités physiques : force, endurance, vitesse, mobilité, composition corporelle</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Profil mental (questionnaire validé) : motivation, gestion du stress, confiance en soi</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Rapport personnalisé : radar de performance et orientations de programmation</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Prise en charge complète dès l'arrivée, à Pornic Hybrid Training</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Déduit du premier mois si vous vous engagez ensuite sur un suivi</span></li>
+          </ul>
+        </div>
+
+        <h3 class="sr-only">Les suivis</h3>
+        <div class="plans">
+          <div class="plan">
+            <h3>Suivi Essentiel</h3>
+            <div class="price"><span class="num">220 €</span><span>par mois</span></div>
+            <p>Une séance encadrée par semaine, et un programme précis pour vos séances en autonomie.</p>
+            <ul class="checks">
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>1 séance coachée par semaine</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Programme sur‑mesure pour vos séances en autonomie</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Retests toutes les 6 à 8 semaines</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Ajustements selon vos résultats</span></li>
+            </ul>
+          </div>
+          <div class="plan plan--featured">
+            <span class="plan__badge">Recommandé</span>
+            <h3>Suivi Performance</h3>
+            <div class="price"><span class="num">390 €</span><span>par mois</span></div>
+            <p>L'accompagnement complet, pour progresser vite et sans approximation.</p>
+            <ul class="checks">
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>2 séances coachées par semaine</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Programme sur‑mesure pour vos séances en autonomie</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Retests toutes les 6 à 8 semaines</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Suivi par messages entre les séances</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Conseils nutrition et préparation mentale</span></li>
+            </ul>
+          </div>
+          <div class="plan">
+            <h3>Préparation spécifique</h3>
+            <div class="price"><span class="num">790 €</span><span>les 12 semaines</span></div>
+            <p>Compétition, HYROX, concours pompier ou armée, retour après blessure.</p>
+            <ul class="checks">
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Bilan de performance inclus</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>12 séances coachées</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Périodisation complète jusqu'à l'échéance</span></li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span>Retests et protocole de réathlétisation si besoin</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <ul class="unit">
+          <li><b>Séance à l'unité</b><span>1 h de coaching sur‑mesure</span><span class="num">60 €</span></li>
+          <li><b>Duo</b><span>1 séance à deux, soit 40 € par personne</span><span class="num">80 €</span></li>
+        </ul>
+
+        <div class="tarif-notes">
+          <p>Séances à Pornic Hybrid Training, 1 rue du Chaudron. Accès à la salle inclus : aucun abonnement ni droit d'entrée à prévoir. À domicile uniquement si le matériel disponible est suffisant.</p>
+          <p>Suivis mensuels : engagement minimum de 3 mois.</p>
+        </div>
+
+        <h3 class="faq__title">Questions fréquentes</h3>
+        <div class="faq">
+          <details name="faq">
+            <summary>Faut‑il un abonnement à la salle ?</summary>
+            <p>Non. L'accès à Pornic Hybrid Training est inclus dans tous les suivis, sans abonnement ni droit d'entrée.</p>
+          </details>
+          <details name="faq">
+            <summary>Peut‑on s'entraîner à domicile ?</summary>
+            <p>Uniquement si le matériel disponible est suffisant : barres, charges, ergomètre. Sinon, les séances ont lieu à la salle.</p>
+          </details>
+          <details name="faq">
+            <summary>Le bilan est‑il obligatoire ?</summary>
+            <p>Oui. Tout accompagnement commence par le bilan : c'est la seule façon sérieuse de programmer. Ses 90 € sont déduits de votre premier mois si vous poursuivez avec un suivi.</p>
+          </details>
+          <details name="faq">
+            <summary>Y a‑t‑il un engagement ?</summary>
+            <p>Les suivis mensuels demandent un engagement minimum de 3 mois. La préparation spécifique est un bloc de 12 semaines.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appel à l'action -->
+    <section class="section cta" id="reserver">
+      <div class="wrap">
+        <h2 class="section-title">Prêt à vous entraîner autrement ?</h2>
+        <div class="cta__side">
+          <p>Tout commence par le bilan. On analyse votre niveau, vos objectifs, et on construit la suite ensemble.</p>
+          <a href="contact.html" class="btn btn--white btn--lg">Réserver mon bilan</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>
+        <a href="index.html" class="footer__logo">Rockett <b>Performance</b></a>
+        <address class="mt-1">Par Romain Ooghe, coach sportif et préparateur physique<br>Pornic Hybrid Training<br>1 rue du Chaudron, 44210 Pornic<br><a href="tel:+33676598008">06&nbsp;76&nbsp;59&nbsp;80&nbsp;08</a> · <a href="https://wa.me/33676598008" target="_blank" rel="noopener">WhatsApp</a><br><a href="mailto:pornicperformancelab@gmail.com">pornicperformancelab@gmail.com</a></address>
+      </div>
+      <ul>
+        <li><a href="methode.html">La méthode</a></li>
+        <li><a href="tests.html">Le bilan et les tests</a></li>
+        <li><a href="exemples.html">Exemple de périodisation</a></li>
+      </ul>
+      <ul>
+        <li><a href="index.html#expertise">Expertise</a></li>
+        <li><a href="index.html#tarifs">Tarifs</a></li>
+        <li><a href="clubs.html">Clubs &amp; structures</a></li>
+        <li><a href="contact.html">Réserver un bilan</a></li>
+      </ul>
+      <div class="footer__bottom">
+        <span>© 2026 Rockett Performance · Romain Ooghe. Tous droits réservés.</span>
+        <span>Coach sportif et préparateur physique à Pornic et dans le Pays de Retz.</span>
+      </div>
+    </div>
   </footer>
 
-  <script>
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
-  </script>
-
-
-  <script>
-    (function () {
-      const nav = document.querySelector('nav');
-      const btn = nav.querySelector('.nav-toggle');
-      btn.addEventListener('click', () => {
-        const open = nav.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open);
-        btn.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
-      });
-      nav.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
-        nav.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      }));
-    })();
-  </script>
 </body>
 </html>

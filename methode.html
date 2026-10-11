@@ -3,403 +3,210 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>La méthode · Préparateur physique à Pornic · Pornic Performance Lab</title>
-  <meta name="description" content="Bilan complet, programmation sur-mesure, suivi encadré et retests réguliers : la méthode de préparation physique de Pornic Performance Lab." />
+  <title>La méthode · Préparateur physique à Pornic · Rockett Performance</title>
+  <meta name="description" content="Bilan complet, programmation sur-mesure, suivi encadré et retests réguliers : la méthode de préparation physique de Rockett Performance." />
   <link rel="canonical" href="https://pornicperformancelab.com/methode" />
   <meta property="og:url" content="https://pornicperformancelab.com/methode" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
-  <meta property="og:site_name" content="Pornic Performance Lab" />
-  <meta property="og:title" content="La méthode · Préparateur physique à Pornic · Pornic Performance Lab" />
-  <meta property="og:description" content="Bilan complet, programmation sur-mesure, suivi encadré et retests réguliers : la méthode de préparation physique de Pornic Performance Lab." />
+  <meta property="og:site_name" content="Rockett Performance" />
+  <meta property="og:title" content="La méthode · Préparateur physique à Pornic · Rockett Performance" />
+  <meta property="og:description" content="Bilan complet, programmation sur-mesure, suivi encadré et retests réguliers : la méthode de préparation physique de Rockett Performance." />
+  <meta property="og:image" content="https://pornicperformancelab.com/images/romain-mobilite.jpg" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/tabler-icons.min.css" />
-
-  <style>
-    :root {
-      --rouge: #B85C38;
-      --rouge-light: rgba(184,92,56,0.10);
-      --noir: #0c0c0c;
-      --noir-soft: #161616;
-      --blanc: #f5f2ed;
-      --gris: #888;
-      --gris-light: #444;
-      --border: rgba(255,255,255,0.08);
-      --font-serif: 'Instrument Serif', Georgia, serif;
-      --font-sans: 'DM Sans', sans-serif;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-sans); background: var(--noir); color: var(--blanc); overflow-x: hidden; }
-
-    body::before {
-      content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px; height: 64px;
-      background: rgba(12,12,12,0.85); backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo { font-size: 13px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blanc); text-decoration: none; }
-    .nav-logo span { color: var(--rouge); }
-    .nav-links { display: flex; gap: 32px; }
-    .nav-links a { font-size: 13px; color: var(--gris); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--blanc); }
-    .nav-cta { font-family: var(--font-sans); font-size: 13px; font-weight: 500; background: var(--rouge); color: #fff; border: none; padding: 9px 20px; border-radius: 6px; cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
-    .nav-cta:hover { opacity: 0.85; }
-
-    /* HERO */
-    .page-header {
-      padding: 140px 48px 72px;
-      background: var(--noir-soft);
-      position: relative; overflow: hidden;
-    }
-    .page-header::before {
-      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-      background: radial-gradient(ellipse at 30% 60%, rgba(184,92,56,0.07) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .page-header-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-    .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rouge); border: 1px solid rgba(184,92,56,0.35); padding: 6px 14px; border-radius: 4px; margin-bottom: 24px; }
-    .page-header h1 { font-family: var(--font-serif); font-size: clamp(36px, 5vw, 64px); font-weight: 400; line-height: 1.15; margin-bottom: 16px; }
-    .page-header h1 em { font-style: italic; color: var(--rouge); }
-    .page-header p { font-size: 16px; color: var(--gris); max-width: 540px; line-height: 1.75; }
-
-    /* SECTION */
-    .section-inner { max-width: 1100px; margin: 0 auto; padding: 80px 48px; }
-    .s-label { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rouge); margin-bottom: 12px; }
-    .s-title { font-family: var(--font-serif); font-size: clamp(26px, 3vw, 40px); font-weight: 400; line-height: 1.2; margin-bottom: 10px; }
-    .s-sub { font-size: 15px; color: var(--gris); max-width: 520px; line-height: 1.75; margin-bottom: 48px; }
-
-    /* ÉTAPES VERTICALES */
-    .steps { display: flex; flex-direction: column; gap: 0; }
-    .step {
-      display: grid; grid-template-columns: 80px 1fr;
-      gap: 0 32px;
-      padding: 48px 0;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-    }
-    .step:last-child { border-bottom: none; }
-    .step-num-col { display: flex; flex-direction: column; align-items: center; }
-    .step-num {
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      border: 1px solid rgba(184,92,56,0.4);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--font-serif); font-size: 20px; color: var(--rouge);
-      flex-shrink: 0;
-    }
-    .step-line {
-      width: 1px; flex: 1; margin-top: 12px;
-      background: linear-gradient(to bottom, rgba(184,92,56,0.2), transparent);
-    }
-    .step:last-child .step-line { display: none; }
-
-    .step-body {}
-    .step-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rouge); margin-bottom: 10px; }
-    .step-title { font-family: var(--font-serif); font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; margin-bottom: 16px; }
-    .step-desc { font-size: 15px; color: var(--gris); line-height: 1.8; max-width: 600px; margin-bottom: 24px; }
-    .step-details { display: flex; flex-direction: column; gap: 10px; }
-    .detail-item { display: flex; gap: 12px; align-items: flex-start; }
-    .detail-icon { color: var(--rouge); font-size: 16px; margin-top: 1px; flex-shrink: 0; }
-    .detail-text { font-size: 14px; color: #bbb; line-height: 1.6; }
-    .detail-text strong { color: var(--blanc); font-weight: 500; }
-
-    /* PRINCIPES */
-    .principes-section { background: var(--noir-soft); }
-    .principes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .principe-card {
-      border: 1px solid var(--border); border-radius: 10px; padding: 28px 24px;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .principe-card:hover { border-color: rgba(184,92,56,0.3); background: var(--rouge-light); }
-    .principe-icon { font-size: 24px; color: var(--rouge); margin-bottom: 16px; }
-    .principe-card h3 { font-family: var(--font-serif); font-size: 20px; font-weight: 400; margin-bottom: 10px; }
-    .principe-card p { font-size: 14px; color: var(--gris); line-height: 1.7; }
-
-    /* DIFFÉRENTIATEURS */
-    .diff-section { background: var(--noir); }
-    .diff-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-    .diff-quote {
-      font-family: var(--font-serif);
-      font-size: clamp(20px, 2.5vw, 30px);
-      font-weight: 400; line-height: 1.5;
-      color: var(--blanc);
-    }
-    .diff-quote em { font-style: italic; color: var(--rouge); }
-    .diff-list { display: flex; flex-direction: column; gap: 16px; }
-    .diff-item { display: flex; gap: 14px; padding: 16px; border: 1px solid var(--border); border-radius: 8px; }
-    .diff-item i { color: var(--rouge); font-size: 18px; flex-shrink: 0; }
-    .diff-item h4 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
-    .diff-item p { font-size: 13px; color: var(--gris); line-height: 1.6; }
-
-    /* CTA */
-    .cta-section { background: var(--rouge); padding: 80px 48px; text-align: center; }
-    .cta-section h2 { font-family: var(--font-serif); font-size: clamp(26px, 4vw, 48px); font-weight: 400; color: #fff; margin-bottom: 14px; }
-    .cta-section p { font-size: 16px; color: rgba(255,255,255,0.75); margin-bottom: 32px; }
-    .btn-white { font-family: var(--font-sans); font-size: 14px; font-weight: 500; background: #fff; color: var(--rouge); border: none; padding: 14px 32px; border-radius: 6px; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; }
-    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.25); }
-
-    footer { background: var(--noir); border-top: 1px solid var(--border); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .footer-logo { font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
-    .footer-logo span { color: var(--rouge); }
-    footer p { font-size: 12px; color: var(--gris-light); }
-
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      .page-header, .section-inner, .cta-section { padding-left: 20px; padding-right: 20px; }
-      .step { grid-template-columns: 48px 1fr; gap: 0 16px; }
-      .principes-grid { grid-template-columns: 1fr; }
-      .diff-layout { grid-template-columns: 1fr; }
-      footer { flex-direction: column; text-align: center; }
-    }
-
-    /* ── MENU MOBILE ── */
-    .nav-toggle { display: none; background: none; border: 1px solid var(--border); color: var(--blanc); width: 40px; height: 40px; border-radius: 6px; cursor: pointer; align-items: center; justify-content: center; flex-direction: column; gap: 5px; padding: 0; }
-    .nav-toggle span { display: block; width: 18px; height: 1.5px; background: currentColor; transition: transform 0.2s, opacity 0.2s; }
-    nav.open .nav-toggle span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
-    nav.open .nav-toggle span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    @media (max-width: 480px) {
-      .nav-logo { font-size: 11px !important; letter-spacing: 0.08em !important; }
-      .nav-cta { font-size: 12px !important; padding: 8px 12px !important; }
-    }
-    .nav-logo, .nav-cta { white-space: nowrap; }
-    .nav-right { display: flex; align-items: center; gap: 10px; }
-    @media (max-width: 768px) {
-      .nav-toggle { display: inline-flex; }
-      nav.open .nav-links { display: flex; flex-direction: column; gap: 0; position: absolute; top: 64px; left: 0; right: 0; background: var(--noir); border-bottom: 1px solid var(--border); padding: 8px 20px 16px; }
-      nav.open .nav-links a { font-size: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); color: var(--blanc); }
-      nav.open .nav-links a:last-child { border-bottom: none; }
-    }
-    a:focus-visible, button:focus-visible, .chip:focus-visible, .dispo-chip:focus-visible { outline: 2px solid var(--rouge); outline-offset: 2px; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,400..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="assets/site.js" defer></script>
 </head>
 <body>
 
-  <nav aria-label="Navigation principale">
-    <a href="index.html" class="nav-logo">PORNIC<span>·</span>PERFORMANCE LAB</a>
-    <div class="nav-links" id="nav-links">
-      <a href="methode.html" class="active">Méthode</a>
-      <a href="index.html#expertise">Expertise</a>
-      <a href="index.html#offres">Offres</a>
-      <a href="exemples.html">Exemples</a>
-      <a href="tests.html">Tests</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="nav-right">
-      <a href="contact.html" class="nav-cta">Réserver</a>
-      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
-    </div>
-  </nav>
+  <a href="#contenu" class="skip">Aller au contenu</a>
 
-  <header class="page-header">
-    <div class="page-header-inner">
-      <div class="tag">La méthode</div>
-      <h1>Un coaching<br><em>structuré</em>, pas improvisé.</h1>
-      <p>La performance durable ne s'improvise pas. Elle se construit sur une évaluation précise, une programmation logique et des ajustements continus. Voici comment ça se passe concrètement.</p>
+  <div class="topbar">
+    <span class="topbar__q">Une question ? </span>Appelez-moi&nbsp;: <a href="tel:+33676598008" class="topbar__tel">06&nbsp;76&nbsp;59&nbsp;80&nbsp;08</a><span class="topbar__sep" aria-hidden="true">·</span><a href="https://wa.me/33676598008" class="topbar__wa" target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+
+  <header class="nav">
+    <div class="nav__in">
+      <a href="index.html" class="nav__logo" aria-label="Rockett Performance, accueil">Rockett <b>Performance</b></a>
+      <nav aria-label="Navigation principale">
+        <ul class="nav__links" id="nav-links">
+          <li><a href="methode.html" aria-current="page">Méthode</a></li>
+          <li><a href="tests.html">Bilan</a></li>
+          <li><a href="clubs.html">Clubs</a></li>
+          <li><a href="exemples.html">Exemples</a></li>
+          <li><a href="index.html#tarifs">Tarifs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav__right">
+        <a href="contact.html" class="btn btn--red btn--sm nav__cta">Réserver</a>
+        <button class="nav__toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+      </div>
     </div>
+    <div class="nav__progress"></div>
   </header>
 
-  <!-- ÉTAPES -->
-  <section style="background: var(--noir);">
-    <div class="section-inner">
-      <p class="s-label reveal">Le processus</p>
-      <h2 class="s-title reveal">Quatre étapes,<br>une progression assurée.</h2>
-      <p class="s-sub reveal">Chaque accompagnement suit la même structure rigoureuse, adaptée à ton profil et tes objectifs.</p>
+  <main id="contenu">
 
-      <div class="steps">
-
-        <div class="step reveal">
-          <div class="step-num-col">
-            <div class="step-num">1</div>
-            <div class="step-line"></div>
-          </div>
-          <div class="step-body">
-            <div class="step-label">Onboarding · ~90 minutes</div>
-            <h2 class="step-title">Le bilan complet des qualités physiques</h2>
-            <p class="step-desc">Avant de programmer quoi que ce soit, on évalue. Ce bilan couvre toutes les qualités physiques et fournit une photographie précise de ton niveau réel — sans jugement, avec méthode.</p>
-            <div class="step-details">
-              <div class="detail-item"><i class="ti ti-barbell detail-icon"></i><span class="detail-text"><strong>Force & puissance</strong> — Back squat, développé couché, Countermovement Jump (CMJ)</span></div>
-              <div class="detail-item"><i class="ti ti-heart-rate detail-icon"></i><span class="detail-text"><strong>Endurance aérobie</strong> — Test progressif par paliers, détermination des seuils S1/S2 et zones d'effort</span></div>
-              <div class="detail-item"><i class="ti ti-run detail-icon"></i><span class="detail-text"><strong>Vitesse & agilité</strong> — Sprint 10/30m, test Pro-Agility 5-10-5 (NFL Combine)</span></div>
-              <div class="detail-item"><i class="ti ti-body-scan detail-icon"></i><span class="detail-text"><strong>Composition & mobilité</strong> — Plis cutanés, screening articulaire, détection des asymétries</span></div>
-              <div class="detail-item"><i class="ti ti-brain detail-icon"></i><span class="detail-text"><strong>Profil mental</strong> — Questionnaire validé (POMS/TOPS) : motivation, gestion du stress, confiance en soi</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="step reveal">
-          <div class="step-num-col">
-            <div class="step-num">2</div>
-            <div class="step-line"></div>
-          </div>
-          <div class="step-body">
-            <div class="step-label">Programmation · Livraison sous 48h</div>
-            <h2 class="step-title">Un programme construit pour toi, pas pour tout le monde</h2>
-            <p class="step-desc">À partir des résultats du bilan, une programmation complète est construite : périodisation adaptée, exercices sélectionnés selon ton profil, charge et volume calibrés selon tes objectifs.</p>
-            <div class="step-details">
-              <div class="detail-item"><i class="ti ti-calendar detail-icon"></i><span class="detail-text"><strong>Périodisation rigoureuse</strong> — organisation des blocs d'entraînement pour maximiser les adaptations dans le temps</span></div>
-              <div class="detail-item"><i class="ti ti-target detail-icon"></i><span class="detail-text"><strong>Priorisation des lacunes</strong> — les points faibles identifiés au bilan deviennent les priorités de la programmation</span></div>
-              <div class="detail-item"><i class="ti ti-salad detail-icon"></i><span class="detail-text"><strong>Nutrition intégrée</strong> — recommandations alimentaires alignées avec les charges d'entraînement (DU Nutrition sportive)</span></div>
-              <div class="detail-item"><i class="ti ti-brain detail-icon"></i><span class="detail-text"><strong>Préparation mentale incluse</strong> — routines, techniques de focalisation, gestion de la pression compétitive</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="step reveal">
-          <div class="step-num-col">
-            <div class="step-num">3</div>
-            <div class="step-line"></div>
-          </div>
-          <div class="step-body">
-            <div class="step-label">Suivi · Continu</div>
-            <h2 class="step-title">Des séances encadrées, une progression visible</h2>
-            <p class="step-desc">Les séances ont lieu à la salle Pornic Hybrid Training, accès inclus. À domicile uniquement si le matériel disponible est suffisant. Chaque séance est encadrée, les données collectées, les retours pris en compte.</p>
-            <div class="step-details">
-              <div class="detail-item"><i class="ti ti-map-pin detail-icon"></i><span class="detail-text"><strong>Pornic Hybrid Training</strong> — salle équipée pour le développement de la force et de l'endurance</span></div>
-              <div class="detail-item"><i class="ti ti-home detail-icon"></i><span class="detail-text"><strong>Domicile</strong> — uniquement si le matériel est suffisant (barres, charges, ergomètre)</span></div>
-              <div class="detail-item"><i class="ti ti-chart-bar detail-icon"></i><span class="detail-text"><strong>Collecte des données</strong> — chaque performance est enregistrée pour alimenter les futurs ajustements</span></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="step reveal">
-          <div class="step-num-col">
-            <div class="step-num">4</div>
-            <div class="step-line"></div>
-          </div>
-          <div class="step-body">
-            <div class="step-label">Ajustements · En continu</div>
-            <h2 class="step-title">Tests de progression & recalibrage permanent</h2>
-            <p class="step-desc">Des tests réguliers permettent de mesurer objectivement la progression sur chaque qualité physique. Le programme évolue en fonction des résultats, de ta vie et de tes retours — jamais figé.</p>
-            <div class="step-details">
-              <div class="detail-item"><i class="ti ti-refresh detail-icon"></i><span class="detail-text"><strong>Bilans réguliers</strong> — retests programmés tous les 8 à 12 semaines sur les qualités prioritaires</span></div>
-              <div class="detail-item"><i class="ti ti-adjustments detail-icon"></i><span class="detail-text"><strong>Ajustements à tout moment</strong> — changement d'objectif, blessure, contrainte de vie : le programme s'adapte</span></div>
-              <div class="detail-item"><i class="ti ti-report detail-icon"></i><span class="detail-text"><strong>Rapport de progression</strong> — comparaison avant/après pour chaque qualité physique testée</span></div>
-            </div>
-          </div>
-        </div>
-
+    <!-- En-tête de page -->
+    <header class="page-head">
+      <div class="wrap">
+        <p class="kicker">La méthode</p>
+        <h1 class="page-title">Un coaching structuré, pas improvisé</h1>
+        <p class="lead">La performance durable ne s'improvise pas. Elle se construit sur une évaluation précise, une programmation logique et des ajustements continus. Voici comment ça se passe concrètement.</p>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- PRINCIPES -->
-  <section class="principes-section">
-    <div class="section-inner">
-      <p class="s-label reveal">Les principes</p>
-      <h2 class="s-title reveal">Ce qui guide chaque décision.</h2>
-      <p class="s-sub reveal">Trois convictions fondamentales héritées du sport de haut niveau et de la formation universitaire.</p>
-      <div class="principes-grid">
-        <div class="principe-card reveal">
-          <div class="principe-icon"><i class="ti ti-microscope"></i></div>
-          <h3>Données avant intuitions</h3>
-          <p>Chaque décision de programmation repose sur des mesures objectives. Ce qui se mesure se gère — et ce qui se gère s'améliore.</p>
+    <!-- Les quatre étapes -->
+    <section class="section" id="etapes">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">Quatre étapes, une progression assurée</h2>
+          <p class="lead">Chaque accompagnement suit la même structure rigoureuse, adaptée à votre profil et à vos objectifs.</p>
         </div>
-        <div class="principe-card reveal">
-          <div class="principe-icon"><i class="ti ti-puzzle"></i></div>
-          <h3>Le tout est plus que la somme</h3>
-          <p>Force, endurance, nutrition, récupération et préparation mentale sont interdépendants. Un coaching qui en isole un est un coaching incomplet.</p>
-        </div>
-        <div class="principe-card reveal">
-          <div class="principe-icon"><i class="ti ti-shield"></i></div>
-          <h3>Progresser sans se blesser</h3>
-          <p>La performance durable passe par la prévention. Screening de mobilité, charge progressive et réathlétisation font partie intégrante de la méthode.</p>
-        </div>
+
+        <ol class="steps">
+
+          <li class="step step--detailed">
+            <span class="step__num" aria-hidden="true">1</span>
+            <h3>Le bilan complet des qualités physiques</h3>
+            <span class="step__meta">Onboarding, environ 90 minutes</span>
+            <p>Avant de programmer quoi que ce soit, on évalue. Ce bilan couvre toutes les qualités physiques et fournit une photographie précise de votre niveau réel, sans jugement, avec méthode.</p>
+            <dl class="dl">
+              <div><dt>Force et puissance</dt><dd>Back squat, développé couché, Countermovement Jump (CMJ)</dd></div>
+              <div><dt>Endurance aérobie</dt><dd>Test progressif par paliers, détermination des seuils S1/S2 et des zones d'effort</dd></div>
+              <div><dt>Vitesse et agilité</dt><dd>Sprint 10/30 m, test Pro-Agility 5-10-5 (NFL Combine)</dd></div>
+              <div><dt>Composition et mobilité</dt><dd>Plis cutanés, screening articulaire, détection des asymétries</dd></div>
+              <div><dt>Profil mental</dt><dd>Questionnaire validé (POMS/TOPS adapté) : motivation, gestion du stress, confiance en soi</dd></div>
+            </dl>
+          </li>
+
+          <li class="step step--detailed">
+            <span class="step__num" aria-hidden="true">2</span>
+            <h3>Un programme construit pour vous, pas pour tout le monde</h3>
+            <span class="step__meta">Programmation, livrée sous 48 h</span>
+            <p>À partir des résultats du bilan, une programmation complète est construite : périodisation adaptée, exercices sélectionnés selon votre profil, charge et volume calibrés selon vos objectifs.</p>
+            <dl class="dl">
+              <div><dt>Périodisation rigoureuse</dt><dd>Organisation des blocs d'entraînement pour maximiser les adaptations dans le temps</dd></div>
+              <div><dt>Priorisation des lacunes</dt><dd>Les points faibles identifiés au bilan deviennent les priorités de la programmation</dd></div>
+              <div><dt>Nutrition intégrée</dt><dd>Recommandations alimentaires alignées avec les charges d'entraînement (DU Nutrition sportive)</dd></div>
+              <div><dt>Préparation mentale incluse</dt><dd>Routines, techniques de focalisation, gestion de la pression compétitive</dd></div>
+            </dl>
+          </li>
+
+          <li class="step step--detailed">
+            <span class="step__num" aria-hidden="true">3</span>
+            <h3>Des séances encadrées, une progression visible</h3>
+            <span class="step__meta">Suivi, en continu</span>
+            <p>Les séances ont lieu à la salle Pornic Hybrid Training, accès inclus. À domicile uniquement si le matériel disponible est suffisant. Chaque séance est encadrée, les données collectées, les retours pris en compte.</p>
+            <dl class="dl">
+              <div><dt>Pornic Hybrid Training</dt><dd>Salle équipée pour le développement de la force et de l'endurance</dd></div>
+              <div><dt>Domicile</dt><dd>Uniquement si le matériel est suffisant (barres, charges, ergomètre)</dd></div>
+              <div><dt>Collecte des données</dt><dd>Chaque performance est enregistrée pour alimenter les futurs ajustements</dd></div>
+            </dl>
+          </li>
+
+          <li class="step step--detailed">
+            <span class="step__num" aria-hidden="true">4</span>
+            <h3>Tests de progression et recalibrage permanent</h3>
+            <span class="step__meta">Ajustements, en continu</span>
+            <p>Des tests réguliers permettent de mesurer objectivement la progression sur chaque qualité physique. Le programme évolue en fonction des résultats, de votre vie et de vos retours, jamais figé.</p>
+            <dl class="dl">
+              <div><dt>Bilans réguliers</dt><dd>Retests programmés toutes les 6 à 8 semaines sur les qualités prioritaires</dd></div>
+              <div><dt>Ajustements à tout moment</dt><dd>Changement d'objectif, blessure, contrainte de vie : le programme s'adapte</dd></div>
+              <div><dt>Rapport de progression</dt><dd>Comparaison avant/après pour chaque qualité physique testée</dd></div>
+            </dl>
+          </li>
+
+        </ol>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- DIFFÉRENTIATEURS -->
-  <section class="diff-section">
-    <div class="section-inner">
-      <div class="diff-layout reveal">
-        <div>
-          <p class="s-label">Pourquoi c'est différent</p>
-          <p class="diff-quote">
-            "Peu de coachs peuvent aligner <em>l'expérience du haut niveau</em> et une formation universitaire pluridisciplinaire aussi complète."
-          </p>
+    <!-- Les principes -->
+    <section class="section section--paper-2" id="principes">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title">Ce qui guide chaque décision</h2>
+          <p class="lead">Trois convictions fondamentales héritées du sport de haut niveau et de la formation universitaire.</p>
         </div>
-        <div class="diff-list">
-          <div class="diff-item">
-            <i class="ti ti-award"></i>
-            <div>
-              <h4>Athlète de haut niveau</h4>
-              <p>Football Américain (Pôle France, Championnat d'Europe), Bobsleigh (Équipe de France) — un vécu qui informe chaque coaching.</p>
-            </div>
+        <div class="principles">
+          <div>
+            <h3>Données avant intuitions</h3>
+            <p>Chaque décision de programmation repose sur des mesures objectives. Ce qui se mesure se gère, et ce qui se gère s'améliore.</p>
           </div>
-          <div class="diff-item">
-            <i class="ti ti-certificate"></i>
-            <div>
-              <h4>5 diplômes universitaires spécialisés</h4>
-              <p>STAPS + 4 DU couvrant la prépa physique, la réathlétisation, la nutrition, la haute performance et le mental.</p>
-            </div>
+          <div>
+            <h3>Le tout est plus que la somme</h3>
+            <p>Force, endurance, nutrition, récupération et préparation mentale sont interdépendants. Un coaching qui en isole un est un coaching incomplet.</p>
           </div>
-          <div class="diff-item">
-            <i class="ti ti-users"></i>
-            <div>
-              <h4>Gérant CrossFit & enseignant</h4>
-              <p>4 ans de direction de CrossFit Pornic et cours de préparation mentale à l'EDNH Nantes — une expérience pédagogique rare.</p>
-            </div>
+          <div>
+            <h3>Progresser sans se blesser</h3>
+            <p>La performance durable passe par la prévention. Screening de mobilité, charge progressive et réathlétisation font partie intégrante de la méthode.</p>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Pourquoi c'est différent -->
+    <section class="section section--black" id="difference">
+      <div class="wrap grid-2">
+        <blockquote class="quote">« Peu de coachs peuvent aligner l'expérience du haut niveau et une formation universitaire pluridisciplinaire aussi complète. »</blockquote>
+        <ul class="board">
+          <li>
+            <h4>Athlète de haut niveau</h4>
+            <p>Football américain (Pôle France, Championnat d'Europe), bobsleigh (équipe de France) : un vécu qui informe chaque coaching.</p>
+          </li>
+          <li>
+            <h4>5 diplômes universitaires spécialisés</h4>
+            <p>STAPS et 4 DU couvrant la prépa physique, la réathlétisation, la nutrition, la haute performance et le mental.</p>
+          </li>
+          <li>
+            <h4>Gérant CrossFit et enseignant</h4>
+            <p>4 ans de direction de CrossFit Pornic et cours de préparation mentale à l'EDNH Nantes : une expérience pédagogique rare.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Appel à l'action -->
+    <section class="section cta" id="reserver">
+      <div class="wrap">
+        <h2 class="section-title">Prêt à découvrir votre méthode ?</h2>
+        <div class="cta__side">
+          <p>Commencez par le bilan : 90 minutes pour tout comprendre de votre niveau actuel. Déduit de votre premier mois si vous vous engagez sur un suivi.</p>
+          <a href="contact.html" class="btn btn--white btn--lg">Réserver mon bilan</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>
+        <a href="index.html" class="footer__logo">Rockett <b>Performance</b></a>
+        <address class="mt-1">Par Romain Ooghe, coach sportif et préparateur physique<br>Pornic Hybrid Training<br>1 rue du Chaudron, 44210 Pornic<br><a href="tel:+33676598008">06&nbsp;76&nbsp;59&nbsp;80&nbsp;08</a> · <a href="https://wa.me/33676598008" target="_blank" rel="noopener">WhatsApp</a><br><a href="mailto:pornicperformancelab@gmail.com">pornicperformancelab@gmail.com</a></address>
+      </div>
+      <ul>
+        <li><a href="methode.html">La méthode</a></li>
+        <li><a href="tests.html">Le bilan et les tests</a></li>
+        <li><a href="exemples.html">Exemple de périodisation</a></li>
+      </ul>
+      <ul>
+        <li><a href="index.html#tarifs">Tarifs</a></li>
+        <li><a href="index.html#coach">Le coach</a></li>
+        <li><a href="clubs.html">Clubs &amp; structures</a></li>
+        <li><a href="contact.html">Réserver un bilan</a></li>
+      </ul>
+      <div class="footer__bottom">
+        <span>© 2026 Rockett Performance · Romain Ooghe. Tous droits réservés.</span>
+        <span>Coach sportif et préparateur physique à Pornic et dans le Pays de Retz.</span>
+      </div>
     </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-section">
-    <h2>Prêt à découvrir ta méthode ?</h2>
-    <p>Commence par le bilan : 90 minutes pour tout comprendre de ton niveau actuel.<br>Déduit de ton premier mois si tu t'engages sur un suivi.</p>
-    <a href="contact.html" class="btn-white">Réserver mon bilan →</a>
-  </section>
-
-  <footer>
-    <div class="footer-logo">PORNIC<span>·</span>PERFORMANCE LAB</div>
-    <p>Pornic Hybrid Training · 1 Rue du Chaudron, 44210 Pornic</p>
-    <p>© 2026 — Tous droits réservés</p>
   </footer>
 
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 80);
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.08 });
-    reveals.forEach(el => obs.observe(el));
-  </script>
-
-  <script>
-    (function () {
-      const nav = document.querySelector('nav');
-      const btn = nav.querySelector('.nav-toggle');
-      btn.addEventListener('click', () => {
-        const open = nav.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open);
-        btn.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
-      });
-      nav.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
-        nav.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      }));
-    })();
-  </script>
 </body>
 </html>
