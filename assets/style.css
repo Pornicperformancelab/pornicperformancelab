@@ -802,3 +802,24 @@
   .topbar__wa { opacity: 0.95; }
   @media (max-width: 420px) { .topbar__q { display: none; } }
 }
+
+/* --------------------------------------------------------------------------
+   Documents d'exemple
+   -------------------------------------------------------------------------- */
+@layer components {
+  .docs { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin-top: 2rem; }
+  .doc { display: flex; flex-direction: column; background: #fff; border: 2px solid var(--ink); color: var(--ink); text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .doc:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12); }
+  .doc:focus-visible { outline: 3px solid var(--rouge); outline-offset: 3px; }
+  .doc__img { display: block; aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 2px solid var(--ink); background: var(--paper-2); }
+  .doc__img img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .doc__body { display: flex; flex-direction: column; gap: 0.4rem; padding: 1.1rem 1.2rem 1.3rem; flex: 1; }
+  .doc__tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rouge); }
+  .doc__title { font-size: 1.2rem; font-weight: 800; line-height: 1.15; }
+  .doc__text { font-size: 0.9375rem; line-height: 1.5; color: var(--ink-3); flex: 1; }
+  .doc__cta { margin-top: 0.4rem; font-weight: 700; font-size: 0.9375rem; }
+  .docs--pages { max-width: 52rem; }
+  .docs--pages .doc__img { aspect-ratio: 210 / 297; }
+  .docs__note { margin-top: 1rem; font-size: 0.875rem; color: var(--ink-3); }
+  @media (prefers-reduced-motion: reduce) { .doc { transition: none; } .doc:hover { transform: none; } }
+}
